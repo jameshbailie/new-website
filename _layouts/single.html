@@ -36,7 +36,7 @@ layout: default
         
         {% if page.collection == 'teaching' %}
           <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
-		{% elsif page.collection == 'publications' %}
+		{% elsif page.collection == 'papers' %}
 		
 			{% assign authors_long_formatted = page.authors_long | replace: "!!me!!", "James Bailie" %}
 			
@@ -59,7 +59,7 @@ layout: default
 
       <section class="page__content" itemprop="text">
         
-		{% if page.collection == 'publications' %}
+		{% if page.collection == 'papers' %}
 			{% if page.abstract %}
 				<details class="details-abstract-pub">
 					<summary><b>Abstract</b></summary>
@@ -72,7 +72,7 @@ layout: default
 			<div class="page-content">{{ content }}</div>
 		{% endif %}
 
-		{% if page.collection == 'publications' %}
+		{% if page.collection == 'papers' %}
 			{% if page.citation %}
 			  <details>
 				<summary class="details-summary-pub">Suggested Citation</summary>
@@ -294,7 +294,7 @@ layout: default
         {% if site.data.ui-text[site.locale].meta_label %}
           <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
         {% endif %}
-        {% include page__taxonomy.html %}
+        <!-- {% include page__taxonomy.html %} -->
       </footer>
 
       {% if page.share %}{% include social-share.html %}{% endif %}
