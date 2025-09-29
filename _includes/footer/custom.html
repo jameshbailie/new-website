@@ -21,5 +21,13 @@
 
 <!-- start James's custom footer snippets -->
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const links = document.querySelectorAll('a[href="/files/cv.pdf"]');
+    links.forEach(link => {
+      link.setAttribute("target", "_blank");
+    });
+  });
+</script>
 
 <!-- start James's custom footer snippets -->
