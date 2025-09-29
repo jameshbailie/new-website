@@ -30,4 +30,88 @@
   });
 </script>
 
-<!-- start James's custom footer snippets -->
+<script>
+  (function() {
+    let canonical = document.querySelector('link[rel="canonical"]');
+    let path = canonical ? (new URL(canonical.href, location.href)).pathname : location.pathname;
+    path = path.replace(/\/+$/, '');
+    if (path === '' || path == '/home' || path == '/home.html') {
+      document.documentElement.classList.add('page--home');
+    }
+  })();
+</script>
+
+<script>
+
+function updateBannerHeight() {
+  const home = document.querySelector(".page--home");
+	if (home) {
+		const banner = document.querySelector(".custom-hero-banner"); 
+		const mh = document.querySelector('.masthead');
+		const sb = document.querySelector('[itemtype="http://schema.org/Person"]');
+		
+		if (document.querySelector(".hidden-links .masthead__menu-item") || sb.clientWidth > sb.clientHeight) {
+	    banner.style.height = mh.offsetHeight + "px";
+	  } else {	
+			const target = document.querySelector(".author__content"); 
+			const pageArticle = document.querySelector(".page");
+			
+			const threshold = mh.offsetHeight; 
+			const offset = target.getBoundingClientRect().y + target.getBoundingClientRect().height;
+			
+			const diff = offset;
+			
+			if (window.scrollY <= diff) {
+				const newHeight = offset - window.scrollY;
+				banner.style.height = newHeight + "px";
+			} else {
+				banner.style.height = threshold + "px";
+			}
+		}
+	}
+}
+
+function updateContentHeight() {
+  const home = document.querySelector(".page--home");
+	if (home) {
+		const banner = document.querySelector(".custom-hero-banner"); 
+		const mh = document.querySelector('.masthead');
+		const sb = document.querySelector('[itemtype="http://schema.org/Person"]');
+		
+		if (!(document.querySelector(".hidden-links .masthead__menu-item") || sb.clientWidth > sb.clientHeight)) {	
+			const target = document.querySelector(".social-icons"); 
+			const pageArticle = document.querySelector(".page");
+
+			const offsetContent = target.getBoundingClientRect().y - pageArticle.getBoundingClientRect().y - window.scrollY;
+			pageArticle.style.marginTop = offsetContent + "px";
+		}
+	}
+}
+
+window.addEventListener("load", updateBannerHeight);
+window.addEventListener("resize", updateBannerHeight);
+window.addEventListener("load", updateContentHeight);
+window.addEventListener("resize", updateContentHeight);
+window.addEventListener("scroll", updateBannerHeight);
+</script>
+
+<!-- end James's custom footer snippets -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

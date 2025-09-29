@@ -1,0 +1,71 @@
+
+.masthead a {
+  color: #b32004; 
+}
+
+.masthead {
+  background-image: url("/images/nav-back-alt.jpeg"); /* path to your image */
+  background-size: cover;     /* scale image to cover entire masthead */
+  background-position: center; /* keep it centered */
+  background-repeat: no-repeat; /* don’t tile */
+}
+
+html[data-theme="dark"] .masthead a {
+  color: var(--global-masthead-link-color); 
+}
+
+html[data-theme="dark"] .masthead a:hover {
+  color: var(--global-masthead-link-color-hover);
+}
+
+.greedy-nav {
+  background: transparent;
+}
+
+.visible-links {
+  background: transparent;
+}
+
+.masthead__menu-item {
+  background: transparent;
+}
+
+.hidden-links .masthead__menu-item {
+  background-color: var(--global-bg-color);
+}
+
+.page--home .masthead {
+	background: none;
+}
+
+.page--home .masthead::after {
+	content: none;
+}
+  
+.page--home .custom-hero-banner {
+  width: 100%;
+  background: url("/images/nav-back-alt.jpeg") no-repeat top center;
+  background-size: cover;        /* keep aspect ratio, cover width */
+  background-position: center; /* keep it centered */
+  background-repeat: no-repeat; /* don’t tile */
+  position: fixed;               /* stays fixed at top */
+  top: 0;
+  left: 0;
+  z-index: 1;                   /* push behind content */
+  overflow: hidden;              /* ensures clipping */
+}    
+
+.page--home .custom-hero-banner::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	height: 1px;
+	background: var(--global-border-color);
+	width: 100%;
+}
+
+.page--home .sidebar {
+	z-index: 2;
+}
+
+

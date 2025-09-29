@@ -8,11 +8,11 @@ html[data-theme="dark"] .fa-github {
   color: #ffffff;   
 }
 
-.ai-orcid {
-  color: #000000 !important;   
+.social-icons .ai-orcid, .social-icons .ai-orcid-square {
+  color: #000000;   
 }
 
-html[data-theme="dark"] .ai-orcid {
+html[data-theme="dark"] .social-icons .ai-orcid, .social-icons .ai-orcid-square {
   color: #ffffff;   
 }
 
@@ -34,34 +34,12 @@ html[data-theme="dark"] .author__name-custom {
   bottom: 2.3px;  
 }
 
-
-.masthead a {
-  color: #b32004; 
+.author__bio {
+	font-weight: bold;
 }
 
-.masthead {
-  background-image: url("/images/nav-back-alt.jpeg"); /* path to your image */
-  background-size: cover;     /* scale image to cover entire masthead */
-  background-position: center; /* keep it centered */
-  background-repeat: no-repeat; /* don’t tile */
-}
 
-html[data-theme="dark"] .masthead a {
-  color: #ffffff; 
-}
 
-html[data-theme="dark"] .masthead a:hover {
-  color: var(--global-masthead-link-color-hover);
-}
 
-.greedy-nav {
-  background: transparent;
-}
 
-.visible-links {
-  background: transparent;
-}
 
-.masthead__menu-item {
-  background: transparent;
-}
