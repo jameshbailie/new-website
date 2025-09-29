@@ -1,0 +1,69 @@
+.icon-pad-right-left {
+  padding-right: 0.5em;
+  margin-right: 0.35em;
+  margin-left: 0.15em;
+}
+
+html[data-theme="dark"] .fa-github {
+  color: #ffffff;   
+}
+
+.ai-orcid {
+  color: #000000 !important;   
+}
+
+html[data-theme="dark"] .ai-orcid {
+  color: #ffffff;   
+}
+
+.author__name-custom {
+  composes: author__name;
+  color: #b32004;
+}
+
+html[data-theme="dark"] .author__name-custom {
+  color: #ffffff;   
+}
+
+.author__icon-custom {
+  width: 20px;            /* size you want */
+  height: 20px;
+  vertical-align: middle; /* aligns with text */
+  margin-right: 6px;      /* spacing before text */
+  position: relative;
+  bottom: 2.3px;  
+}
+
+
+.masthead a {
+  color: #b32004; 
+}
+
+.masthead {
+  background-image: url("/images/nav-back-alt.jpeg"); /* path to your image */
+  background-size: cover;     /* scale image to cover entire masthead */
+  background-position: center; /* keep it centered */
+  background-repeat: no-repeat; /* don’t tile */
+}
+
+html[data-theme="dark"] .masthead a {
+  color: #ffffff; 
+}
+
+html[data-theme="dark"] .masthead a:hover,
+.masthead a:focus,
+.masthead a:active {
+  color: var(--global-masthead-link-color-hover);
+}
+
+.greedy-nav {
+  background: transparent;
+}
+
+.visible-links {
+  background: transparent;
+}
+
+.masthead__menu-item {
+  background: transparent;
+}

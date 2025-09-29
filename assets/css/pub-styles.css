@@ -1,0 +1,100 @@
+
+section div.page-content {
+  font-size: smaller;
+  padding-bottom: 0em;
+  margin-bottom: -0.5em;
+}
+
+.details-abstract-pub {
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: box-shadow 0.3s, background 0.3s, border-color 0.3s;
+  margin-bottom: 0.2em;
+}
+
+.details-abstract-pub[open] {
+  border: 2px solid #52adc8;   /* blue border */
+  background: #eff6ff;         /* light blue background */
+  /*box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);*/
+  color: #494e52;
+  margin-bottom: 1em;
+}
+
+.details-abstract-pub p {
+	font-size: smaller;
+	margin-bottom: 0px;
+}
+
+details p.details-p-pub {
+	font-size: smaller;
+	margin-bottom: 12px;
+}
+
+.details-summary-pub {
+	font-size: smaller;
+}
+
+.link-with-icon {
+  text-decoration: none;         /* remove underline from whole link */
+  display: inline-flex;          /* keep icon + text aligned */
+  align-items: center;
+  gap: 0.5em;                    /* spacing between icon and text */
+}
+
+.link-with-icon .label {
+  text-decoration: underline;    /* only underline the text */
+}
+
+.link-with-icon  .icon {
+  position: relative;
+  top: 1px;  /* move icon down */
+}
+
+.links-sep {
+  display: inline-block;
+  width: 2px;              
+  height: 1.5em;           
+  opacity: 0.8;
+  background: #494e52;    
+  margin-top: 0em;
+  margin-right: 0.9em;  
+  margin-left: 1em;       
+  vertical-align: middle;
+  position: relative;
+  bottom: 5px;
+  border-radius: 1px;
+}
+
+html[data-theme="dark"] .links-sep {
+  background: #ffffff;   
+}
+
+.arvix-logo {
+  margin-left: 0em;
+}
+
+.div-links {
+  margin: 1em;
+  padding: 1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
