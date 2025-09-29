@@ -1,12 +1,26 @@
 
+
+html[data-theme="dark"] {
+	--global-bg-color: #102951;
+	--global-bg-color-light: #1a3f69;
+	--global-footer-bg-color: #2c384c;
+}
+
 .masthead a {
   color: #b32004; 
 }
 
 .masthead {
-  background-image: url("/images/nav-back-alt.jpeg"); /* path to your image */
+  background-image: url("/images/banner-light.jpeg"); /* path to your image */
   background-size: cover;     /* scale image to cover entire masthead */
-  background-position: center; /* keep it centered */
+  background-position: top;
+  background-repeat: no-repeat; /* don’t tile */
+}
+
+html[data-theme="dark"] .masthead {
+  background-image: url("/images/banner-dark.jpeg"); /* path to your image */
+  background-size: cover;     /* scale image to cover entire masthead */
+  background-position: top;
   background-repeat: no-repeat; /* don’t tile */
 }
 
@@ -38,15 +52,32 @@ html[data-theme="dark"] .masthead a:hover {
 	background: none;
 }
 
+.page--home[data-theme="dark"] .masthead {
+	background: none;
+}
+
 .page--home .masthead::after {
 	content: none;
 }
   
 .page--home .custom-hero-banner {
-  width: 100%;
-  background: url("/images/nav-back-alt.jpeg") no-repeat top center;
+  background: url("/images/banner-light.jpeg") no-repeat top center;
+	width: 100%;
   background-size: cover;        /* keep aspect ratio, cover width */
-  background-position: center; /* keep it centered */
+  background-position: top;
+  background-repeat: no-repeat; /* don’t tile */
+  position: fixed;               /* stays fixed at top */
+  top: 0;
+  left: 0;
+  z-index: 1;                   /* push behind content */
+  overflow: hidden;              /* ensures clipping */
+}    
+
+.page--home[data-theme="dark"] .custom-hero-banner {
+  background: url("/images/banner-dark.jpeg") no-repeat top center;
+	width: 100%;
+  background-size: cover;        /* keep aspect ratio, cover width */
+  background-position: top;
   background-repeat: no-repeat; /* don’t tile */
   position: fixed;               /* stays fixed at top */
   top: 0;

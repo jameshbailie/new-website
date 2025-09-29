@@ -57,9 +57,9 @@ function updateBannerHeight() {
 			const pageArticle = document.querySelector(".page");
 			
 			const threshold = mh.offsetHeight; 
-			const offset = target.getBoundingClientRect().y + target.getBoundingClientRect().height;
+			const offset = target.getBoundingClientRect().y + target.getBoundingClientRect().height*1.25;
 			
-			const diff = offset;
+			const diff = offset - threshold;
 			
 			if (window.scrollY <= diff) {
 				const newHeight = offset - window.scrollY;
@@ -71,28 +71,65 @@ function updateBannerHeight() {
 	}
 }
 
-function updateContentHeight() {
+
+function updateContentHeightAndBackground() {
   const home = document.querySelector(".page--home");
 	if (home) {
 		const banner = document.querySelector(".custom-hero-banner"); 
 		const mh = document.querySelector('.masthead');
 		const sb = document.querySelector('[itemtype="http://schema.org/Person"]');
 		
+		const pageArticle = document.querySelector(".page__content");
+		pageArticle.style.marginTop = "0px";
+		
 		if (!(document.querySelector(".hidden-links .masthead__menu-item") || sb.clientWidth > sb.clientHeight)) {	
 			const target = document.querySelector(".social-icons"); 
-			const pageArticle = document.querySelector(".page");
-
+			const targetTwo = document.querySelector(".author__desktop");
+			
 			const offsetContent = target.getBoundingClientRect().y - pageArticle.getBoundingClientRect().y - window.scrollY;
 			pageArticle.style.marginTop = offsetContent + "px";
+			pageArticle.style.marginBottom = "0px";
+			
+			const htmlTag = document.querySelector('.page--home[data-theme="dark"] body');
+			const htmlTagLight = document.querySelector('.page--home body');
+			
+			if (htmlTag) {
+				const bgColor = "#102951";
+				const bgColorLight = "#1a3f69";
+				const targetThree = document.querySelector(".author__content"); 
+				const origBannerHeight = targetThree.getBoundingClientRect().y + targetThree.getBoundingClientRect().height*1.25 - window.scrollY;
+				const mhHeight = mh.offsetHeight;
+				const changePoint = origBannerHeight*2-mhHeight;
+				
+				htmlTag.style.background = "linear-gradient(to bottom, " + bgColorLight + " 0px, " + bgColorLight + " " + origBannerHeight + "px, " + bgColor + " " + changePoint + "px, " + bgColor + " 100%)";
+			} else if (htmlTagLight) {
+				htmlTagLight.style.background = "none";
+				htmlTagLight.style.backgroundColor = "var(--global-bg-color);"
+			}
 		}
 	}
 }
 
+window.addEventListener("load", updateContentHeightAndBackground);
+window.addEventListener("resize", updateContentHeightAndBackground);
+
+const htmlTag = document.documentElement;
+const observer = new MutationObserver(mutations => {
+  for (let mutation of mutations) {
+    if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+      updateContentHeightAndBackground();
+    }
+  }
+});
+observer.observe(htmlTag, {
+  attributes: true,             
+  attributeFilter: ['data-theme']
+});
+
 window.addEventListener("load", updateBannerHeight);
 window.addEventListener("resize", updateBannerHeight);
-window.addEventListener("load", updateContentHeight);
-window.addEventListener("resize", updateContentHeight);
 window.addEventListener("scroll", updateBannerHeight);
+
 </script>
 
 <!-- end James's custom footer snippets -->

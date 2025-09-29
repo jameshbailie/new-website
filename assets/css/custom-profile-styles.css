@@ -16,12 +16,12 @@ html[data-theme="dark"] .social-icons .ai-orcid, .social-icons .ai-orcid-square 
   color: #ffffff;   
 }
 
-.author__name-custom {
-  composes: author__name;
+.author__content-custom {
+  composes: author__content;
   color: #b32004;
 }
 
-html[data-theme="dark"] .author__name-custom {
+html[data-theme="dark"] .author__content-custom {
   color: #ffffff;   
 }
 
@@ -37,6 +37,7 @@ html[data-theme="dark"] .author__name-custom {
 .author__bio {
 	font-weight: bold;
 }
+
 
 
 
