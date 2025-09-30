@@ -12,6 +12,11 @@ section div.page-content {
   margin-bottom: 0.2em;
 }
 
+.archive__item .details-abstract-pub {
+	margin-bottom: 1.3em; 
+	padding-top: 0em;
+}
+
 .details-abstract-pub[open] {
   border: 2px solid var(--abstract-border-color);   /* blue border */
   background: var(--abstract-background-color);         /* light blue background */
@@ -23,6 +28,7 @@ section div.page-content {
 .details-abstract-pub p {
 	font-size: smaller;
 	margin-bottom: 0px;
+	margin-top: 0px;
 }
 
 details p.details-p-pub {
