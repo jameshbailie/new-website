@@ -47,7 +47,7 @@ details p.details-p-pub {
 
 .link-with-icon  .icon {
   position: relative;
-  top: 1px;  /* move icon down */
+  top: 2px;  /* move icon down */
 }
 
 .links-sep {
