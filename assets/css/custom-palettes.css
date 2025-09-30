@@ -8,6 +8,8 @@ html[data-theme="dark"] {
 	
 	--global-link-color: #ffb39c;
 	--author-content-custom-color: var(--global-text-color);
+	
+	--button-expand-color: color-mix(in srgb, var(--global-text-color) 50%, var(--global-bg-color) 50%);
 }
 
 :root {
@@ -41,4 +43,10 @@ html[data-theme="dark"] {
 	--bibtex-block-button-color: #212325;
 	--bibtex-block-button-copied-background-color: #45927d;
 	--bibtex-block-button-copied-color: #e5e7eb;
+	
+	--button-expand-background-color: color-mix(in srgb, var(--global-bg-color) 90%, gray 10%);
+	--button-expand-color: color-mix(in srgb, var(--global-text-color) 50%, gray 50%);
+	--button-expand-hover-background-color: color-mix(in srgb, var(--button-expand-background-color) 70%, gray 30%);
+	--button-expand-active-background-color: color-mix(in srgb, var(--button-expand-background-color) 50%, gray 50%);
+	--button-expand-border-color: var(--button-expand-color);
 }

@@ -93,6 +93,34 @@ details p.details-p-pub {
 }
 
 
+.button-expand-container {
+  display: flex;
+  justify-content: flex-end; /* pushes buttons to the right */
+  gap: 0.2rem;               /* spacing between buttons */
+}
+
+.button-expand-container button {
+  font-size: 0.8rem;           /* smaller text */
+  padding: 0.1em 0.2em;         /* vertical and horizontal padding */
+  border-radius: 4px;           /* rounded corners */
+  border: 1px solid var(--button-expand-border-color);
+  background-color: var(--button-expand-background-color);
+  color: var(--button-expand-color);
+  cursor: pointer;              /* pointer on hover */
+  transition: background-color 0.2s;
+}
+
+.button-expand-container button:hover {
+  background-color: var(--button-expand-hover-background-color); 
+  transform: translateY(-0.5px);  
+}
+
+.button-expand-container button:active {
+  background-color: var(--button-expand-active-background-color);
+	transform: translateY(-0.5px);
+}
+
+
 
 
 

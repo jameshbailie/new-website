@@ -1,0 +1,13 @@
+{% include base_path %}
+
+<div class="button-expand-container">
+	<button onclick="expandElements(true)">Show all detail</button>
+	<button onclick="expandElements(false)">Collapse all detail</button>
+</div>
+
+<script>
+	function expandElements(expand) {
+		const allDetails = document.querySelectorAll("details");
+		allDetails.forEach(detail => detail.open = expand);
+	}
+</script>
