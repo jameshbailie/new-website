@@ -47,7 +47,7 @@ layout: default
         {% endif %}
         
         {% if page.collection == 'teaching' %}
-          <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
+          <p> {{page.role}}, {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.when_taught }} </p>
 				{% elsif page.collection == 'papers' %}
 				
 					{% assign authors_long_formatted = page.authors_long | replace: "!!me!!", "James Bailie" %}
@@ -85,6 +85,66 @@ layout: default
 				{% if content != "" %}
 					<div class="page-content content-without-abstract">{{ content }}</div>
 				{% endif %}
+			{% endif %}
+		{% elsif page.collection == 'teaching' %}
+			{% if page.description %}
+				<details class="details-abstract-pub">
+					<summary><b>Description</b></summary>
+					<p>{{page.description}}</p>
+				</details>
+				
+				{% if content != "" or page.instructor or page.instructors or page.syllabus_url or page.course_url %}
+					<div class="page-content">
+			{% else %}
+				{% if content != "" or page.instructor or page.instructors or page.syllabus_url or page.course_url %}
+					<div class="page-content content-without-abstract">
+				{% endif %}
+			{% endif %}
+			{% if content != "" or page.instructor or page.instructors or page.syllabus_url or page.course_url %}
+				{% if page.instructor %}
+					<p>Instructor of record: {{ page.instructor }}</p>
+				{% elsif page.instructors %}
+					<p>Instructors of record: {{ page.instructors }}</p>
+				{% endif %}
+				
+				{% if page.syllabus_url or page.course_url %}
+					{% assign links = '<div class="div-links">' %}
+					{% assign links_separator = '<span class="links-sep"></span>' %}
+					{% assign icon_color = "var(--global-link-color)" %}
+					
+					{% if page.syllabus_url %}
+						{% assign links = links | append: '<a href="' | append: page.syllabus_url | append: '" class="link-with-icon" target="_blank">
+						<span class="icon topZeroPad">
+						<!-- SVG Author: zest. Downloaded from: https://www.svgrepo.com/svg/509890/document. License: MIT License.-->
+						<svg width="20px" height="20px" viewBox="3 1 18 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 1.29289C9.48043 1.10536 9.73478 1 10 1H18C19.6569 1 21 2.34315 21 4V20C21 21.6569 19.6569 23 18 23H6C4.34315 23 3 21.6569 3 20V8C3 7.73478 3.10536 7.48043 3.29289 7.29289L9.29289 1.29289ZM18 3H11V8C11 8.55228 10.5523 9 10 9H5V20C5 20.5523 5.44772 21 6 21H18C18.5523 21 19 20.5523 19 20V4C19 3.44772 18.5523 3 18 3ZM6.41421 7H9V4.41421L6.41421 7ZM7 13C7 12.4477 7.44772 12 8 12H16C16.5523 12 17 12.4477 17 13C17 13.5523 16.5523 14 16 14H8C7.44772 14 7 13.5523 7 13ZM7 17C7 16.4477 7.44772 16 8 16H16C16.5523 16 17 16.4477 17 17C17 17.5523 16.5523 18 16 18H8C7.44772 18 7 17.5523 7 17Z" fill="#currentColor"/>
+						</svg></span>
+						<span class="label">Syllabus</span>
+						</a>' %}
+					{% endif %}
+					
+					{% if page.course_url %}
+						{% if page.syllabus_url %}
+							{% assign links = links | append: links_separator %}
+						{% endif %}
+						
+						{% assign links = links | append: '<a href="' | append: page.course_url | append: '" class="link-with-icon" target="_blank">
+						<span class="icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="none" viewBox="4 3 17 17">
+							<path id="Vector" d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11" stroke="' | append: icon_color | append: '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg></span>
+						<span class="label">Course Website</span>
+						</a>' %}
+					{% endif %}
+					
+					{% assign links = links | append: '</div>' %}
+					{{ links }}
+				{% endif %}
+				
+				{% if content != "" %}
+					{{ content }}
+				{% endif %}
+				</div>
 			{% endif %}
 		{% else %}
 			{% if content != "" %}
