@@ -88,13 +88,13 @@ layout: default
 				{% endif %}
 				
 				<details>
-					<summary style="font-size: smaller">BibTeX</summary>
+					<summary style="font-size: smaller">BibLaTeX</summary>
 					<div class="bibtex-block">
 					  <button class="bibtex-copy-btn" aria-label="Copy BibTeX">
 						<svg width="14px" height="14px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M17.5 14H19C20.1046 14 21 13.1046 21 12V5C21 3.89543 20.1046 3 19 3H12C10.8954 3 10 3.89543 10 5V6.5M5 10H12C13.1046 10 14 10.8954 14 12V19C14 20.1046 13.1046 21 12 21H5C3.89543 21 3 20.1046 3 19V12C3 10.8954 3.89543 10 5 10Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+							<path d="M17.5 14H19C20.1046 14 21 13.1046 21 12V5C21 3.89543 20.1046 3 19 3H12C10.8954 3 10 3.89543 10 5V6.5M5 10H12C13.1046 10 14 10.8954 14 12V19C14 20.1046 13.1046 21 12 21H5C3.89543 21 3 20.1046 3 19V12C3 10.8954 3.89543 10 5 10Z" stroke="var(--bibtex-block-button-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 						</svg>
-						Copy BibTeX
+						Copy BibLaTeX
 					  </button>
 					  <pre id="bib-content">Loading...</pre>
 					</div>
@@ -106,7 +106,7 @@ layout: default
 					if (!response.ok) {
 					  if (response.status === 404) {
 						document.getElementById("bib-content").innerHTML =
-						  "<br>Error: BibTeX file not found (404).<br><br>";
+						  "<br>Error: .bib file not found (404).<br><br>";
 					  } else {
 						document.getElementById("bib-content").innerHTML =
 						  "<br>Error loading .bib file (HTTP " + response.status + ").<br><br>";
@@ -133,19 +133,19 @@ layout: default
 					  const text = pre ? pre.innerText : "";
 
 					  try {
-						await navigator.clipboard.writeText(text);
+							await navigator.clipboard.writeText(text);
 
-						btn.classList.add("copied");
-						const original = btn.innerHTML;
-						btn.innerHTML = "✓ Copied";
-						setTimeout(() => {
-						  btn.classList.remove("copied");
-						  btn.innerHTML = original;
-						}, 1400);
+							btn.classList.add("copied");
+							const original = btn.innerHTML;
+							btn.innerHTML = "✓ Copied";
+							setTimeout(() => {
+								btn.classList.remove("copied");
+								btn.innerHTML = original;
+							}, 1400);
 					  } catch (err) {
-						console.error("Copy failed:", err);
+							console.error("Copy failed:", err);
 					  } finally {
-						copyBtn.blur();
+							btn.blur();
 					  }
 					});
 				</script>

@@ -5,6 +5,8 @@ html[data-theme="dark"] {
 	--global-bg-color-light: #1a3f69;
 	--global-footer-bg-color: #2c384c;
 	
+	
+	--global-link-color: #ffb39c;
 	--author-content-custom-color: var(--global-text-color);
 }
 
@@ -30,4 +32,13 @@ html[data-theme="dark"] {
 	--abstract-border-color: #52adc8;
 	--abstract-background-color: #eff6ff;
 	--abstract-color: #494e52;
+	
+	--bibtex-block-background-color: #c6c8cc;
+  --bibtex-block-border-color: #808488;
+	--bibtex-block-color: #494e52;
+	--bibtex-block-button-background-color: #9ca3af;
+	--bibtex-block-button-hover-background-color: #878b8f;
+	--bibtex-block-button-color: #212325;
+	--bibtex-block-button-copied-background-color: #45927d;
+	--bibtex-block-button-copied-color: #e5e7eb;
 }

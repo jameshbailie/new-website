@@ -1,12 +1,12 @@
 
 .bibtex-block {
   position: relative;
-  background: #f3f4f6;
-  border: 0.1px solid #e5e7eb;
+  background: var(--bibtex-block-background-color);
+  border: 0.1px solid var(--bibtex-block-border-color);
   border-radius: 12px;
   padding: 0.25rem 1rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
-  color: #494e52;
+  color: var(--bibtex-block-color);
   overflow: auto;
   font-size: smaller;
   margin-bottom: 12px;
@@ -24,8 +24,8 @@
   font-size: smaller;
   top: 8px;
   right: 8px;
-  background: #d1d5db; /* grey background */
-  color: #494e52;
+  background: var(--bibtex-block-button-background-color);
+  color: var(--bibtex-block-button-color);
   border: none;
   padding: 0.35rem 0.6rem 0.35rem 0.5rem;
   font-size: 0.85rem;
@@ -39,20 +39,21 @@
 }
 
 .bibtex-copy-btn:hover {
-  background: #9ca3af; /* darker grey on hover */
+  background: var(--bibtex-block-button-hover-background-color);
   transform: translateY(-1px);
   outline: none;
 }
 
 .copy-btn:active,
 .copy-btn:focus {
-  background: #d1d5db;       /* force back to light grey */
+  background: var(--bibtex-block-button-background-color);       /* force back to light grey */
   outline: none;             /* remove default focus ring */
 }
 
 .bibtex-copy-btn.copied {
-  background: #047857; /* green for success */
-  color: white;
+  background: var(--bibtex-block-button-copied-background-color); 
+	transform: translateY(-1px);
+  color: var(--bibtex-block-button-copied-color);
 }
 
 .bibtex-copy-btn .icon {
