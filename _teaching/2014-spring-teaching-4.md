@@ -4,17 +4,11 @@ collection: teaching
 type: "Undergraduate course"
 code: "Stat 101"
 role: "Teaching fellow"
-instructor: "Xiao-Li Meng"
-instructors: "Xiao-Li Meng and Adel Daoud (only one of instructor or instructors allowed)"
-permalink: /teaching/2014-spring-teaching-1
+permalink: /teaching/2014-spring-teaching-4
 venue: "University 1, Department"
 date: 2014-01-01
 when_taught: "2017 Sem 1, 2023f"
 when_taught_long: "2017 Semester 1, 2023 fall (optional -- defaults to when_taught)"
-syllabus_url: "/files/syllabus.pdf"
-course_url: "/canvas/course-name"
-description: "Short description to appear as an abstract."
-notes: "Put in here any teaching awards/recognition."
 ---
 
 
