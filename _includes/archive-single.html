@@ -38,7 +38,7 @@
 		{% if post.abstract %}
 			<p class="archive__item-excerpt excerpt-with-abstract" itemprop="description">
 		{% else %}
-			<p class="archive__item-excerpt" itemprop="description">
+			<p class="archive__item-excerpt excerpt-without-abstract" itemprop="description">
 		{% endif %}
 		
 		{% if post.collection == 'teaching' %}
