@@ -1,0 +1,24 @@
+
+{% include base_path %}
+
+<details class="details-abstract-pub archive__item-excerpt abstract-at-end-of-excerpt">
+		<summary>Abstract</summary>
+		<p>{{post.abstract}}</p>
+</details>
+<script>
+	const detail = document.currentScript.previousElementSibling;
+	
+	if (detail && detail.tagName.toLowerCase() === "details") {
+		detail.addEventListener("toggle", () => {
+			const isOpen = detail.open;
+			detail.classList.toggle("archive__item-excerpt", !isOpen);
+			detail.classList.toggle("archive__item-excerpt-expanded", isOpen);
+
+			const prevP = detail.previousElementSibling;
+			if (prevP && prevP.classList.contains("excerpt-with-abstract")) {
+				prevP.classList.toggle("archive__item-excerpt", !isOpen);
+				prevP.classList.toggle("archive__item-excerpt-expanded", isOpen)
+			}
+		});
+	}
+</script>

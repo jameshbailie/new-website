@@ -1,4 +1,18 @@
 
+.post-title {
+	margin-bottom: 0em;
+	font-size: 1.1rem;
+}
+
+.excerpt-with-abstract {
+	margin-bottom: 0em;
+	margin-top: 0em;
+}
+
+.archive__item-excerpt-expanded {
+	font-size: 0.9rem;
+}
+
 section div.page-content {
   font-size: smaller;
   padding-bottom: 0em;
@@ -10,6 +24,11 @@ section div.page-content {
   border-radius: 8px;
   transition: box-shadow 0.3s, background 0.3s, border-color 0.3s;
   margin-bottom: 0.2em;
+}
+
+.details-abstract-pub.abstract-at-end-of-excerpt {
+	margin-bottom: 1.3em;
+	font: smaller;
 }
 
 .archive__item .details-abstract-pub {

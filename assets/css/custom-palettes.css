@@ -9,7 +9,8 @@ html[data-theme="dark"] {
 	--author-content-custom-color: var(--global-text-color);
 	
 	--abstract-border-color: var(--global-border-color);
-	--abstract-background-color: color-mix(in srgb, black 50%, var(--global-bg-color) 50%);
+	/*--abstract-background-color: color-mix(in srgb, black 50%, var(--global-bg-color) 50%);*/
+	--abstract-background-color: var(--global-footer-bg-color);
 	--abstract-color: var(--global-text-color);
 	
 	--button-expand-color: color-mix(in srgb, var(--global-text-color) 50%, var(--global-bg-color) 50%);
