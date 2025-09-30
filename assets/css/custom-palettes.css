@@ -5,9 +5,12 @@ html[data-theme="dark"] {
 	--global-bg-color-light: #1a3f69;
 	--global-footer-bg-color: #2c384c;
 	
-	
 	--global-link-color: #ffb39c;
 	--author-content-custom-color: var(--global-text-color);
+	
+	--abstract-border-color: var(--global-border-color);
+	--abstract-background-color: color-mix(in srgb, black 50%, var(--global-bg-color) 50%);
+	--abstract-color: var(--global-text-color);
 	
 	--button-expand-color: color-mix(in srgb, var(--global-text-color) 50%, var(--global-bg-color) 50%);
 }
@@ -17,8 +20,10 @@ html[data-theme="dark"] {
 	--global-bg-color-light: #E9F4F8;
 	--global-footer-bg-color: #ced7de;
 
+  --global-hightlight-color: #921800;
+	
 	--global-text-color-light: #7a8288;
-	--global-link-color: #921800;
+	--global-link-color: var(--global-hightlight-color);
 	--global-text-color: #1f2124;
 	
 	/*
@@ -31,8 +36,10 @@ html[data-theme="dark"] {
 	--global-masthead-link-color: var(--global-link-color);
 	--author-content-custom-color: var(--global-link-color);
 	
-	--abstract-border-color: #52adc8;
-	--abstract-background-color: #eff6ff;
+	/*--abstract-border-color: #52adc8;*/
+	--abstract-border-color: var(--global-hightlight-color);
+	/*--abstract-background-color: #eff6ff;*/
+	--abstract-background-color: var(--global-bg-color-light);
 	--abstract-color: #494e52;
 	
 	--bibtex-block-background-color: #c6c8cc;

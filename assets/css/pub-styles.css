@@ -126,8 +126,15 @@ details p.details-p-pub {
 	transform: translateY(-0.5px);
 }
 
+.header-with-buttons {
+  display: inline-flex;
+	align-items: baseline; 
+}
 
-
+.button-expand-container.button-expand-container-aligned {
+  display: inline-flex;
+	float: right;
+}
 
 
 

@@ -8,8 +8,13 @@ author_profile: true
 
 {% include base_path %}
 
-<div class="wordwrap"><a href="/papers_all/">See here for a full list of my papers.</a></div>
 {% include buttons-for-detail.html %}
+<script>
+	document.querySelector('.page__title').classList.add('header-with-buttons');
+	document.querySelector('.button-expand-container').classList.add('button-expand-container-aligned');
+</script>
+
+<div class="wordwrap"><a href="/papers_all/">See here for a full list of my papers.</a></div>
 
 <!-- New style rendering if publication categories are defined -->
 {% if site.publication_category %}

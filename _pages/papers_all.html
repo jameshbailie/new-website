@@ -9,6 +9,10 @@ author_profile: true
 {% include base_path %}
 
 {% include buttons-for-detail.html %}
+<script>
+	document.querySelector('.page__title').classList.add('header-with-buttons');
+	document.querySelector('.button-expand-container').classList.add('button-expand-container-aligned');
+</script>
 
 <!-- New style rendering if publication categories are defined -->
 {% for post in site.papers reversed %}
