@@ -5,13 +5,27 @@
 <!-- Support for Academicons -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
 
-<!-- favicon from https://commons.wikimedia.org/wiki/File:OOjs_UI_icon_academic-progressive.svg -->
-<link rel="apple-touch-icon" sizes="180x180" href="{{ base_path }}/images/apple-touch-icon-180x180.png"/>
-<link rel="icon" type="image/svg+xml" href="{{ base_path }}/images/favicon.svg"/>
-<link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-32x32.png" sizes="32x32"/>
-<link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-192x192.png" sizes="192x192"/>
+<link rel="apple-touch-icon" sizes="180x180" href="{{ base_path }}/images/apple-touch-icon-180x180.png" id="light-scheme-icon"/>
+<link rel="icon" type="image/svg+xml" href="{{ base_path }}/images/favicon.svg" id="light-scheme-icon"/>
+<link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-32x32.png" sizes="32x32" id="light-scheme-icon"/>
+<link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-192x192.png" sizes="192x192" id="light-scheme-icon"/>
+<link rel="icon" href="/images/favicon.ico" id="light-scheme-icon"/>
+
+<!-- James: At some point I should get it to load a dark favicon when browser is in incognito or dark mode, but I haven't got that yet -->
+<!-- I should also have the webpage automatically load in dark theme if the browser is in incognito or dark mode -->
+<!-- See: https://stackoverflow.com/questions/55170708/detect-if-the-browser-is-using-dark-mode-and-use-a-different-favicon -->
+<!-- and https://stackoverflow.com/questions/76444837/change-favicon-on-incognito-mode -->
+<!-- Here are the icons for dark mode -->
+<link rel="apple-touch-icon" sizes="180x180" href="{{ base_path }}/images/apple-touch-icon-180x180-dark.png" id="dark-scheme-icon"/>
+<link rel="icon" type="image/svg+xml" href="{{ base_path }}/images/favicon-dark.svg" id="dark-scheme-icon"/>
+<link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-32x32-dark.png" sizes="32x32" id="dark-scheme-icon"/>
+<link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-192x192-dark.png" sizes="192x192" id="dark-scheme-icon"/>
+<link rel="icon" href="/images/favicon-dark.ico" id="dark-scheme-icon"/>
+
 <link rel="manifest" href="{{ base_path }}/images/manifest.json"/>
-<link rel="icon" href="/images/favicon.ico"/>
+
+
+
 <meta name="theme-color" content="#ffffff"/>
 
 <!-- end custom head snippets -->
