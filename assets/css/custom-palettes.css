@@ -1,0 +1,22 @@
+
+
+html[data-theme="dark"] {
+	--global-bg-color: #102951;
+	--global-bg-color-light: #1a3f69;
+	--global-footer-bg-color: #2c384c;
+	
+	--author-content-custom-color: var(--global-text-color);
+}
+
+:root {
+	--global-bg-color: #a9bbc9;
+	--global-bg-color-light: #E9F4F8;
+	--global-footer-bg-color: #ced7de;
+
+	--global-text-color-light: #7a8288;
+	--global-link-color: #921800;
+	--global-text-color: #454a4f;
+	
+	--global-masthead-link-color: var(--global-link-color);
+	--author-content-custom-color: var(--global-link-color);
+}

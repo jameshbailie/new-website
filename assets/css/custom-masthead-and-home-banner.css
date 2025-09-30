@@ -1,15 +1,5 @@
 
 
-html[data-theme="dark"] {
-	--global-bg-color: #102951;
-	--global-bg-color-light: #1a3f69;
-	--global-footer-bg-color: #2c384c;
-}
-
-.masthead a {
-  color: #b32004; 
-}
-
 .masthead {
   background-image: url("/images/banner-light.jpeg"); /* path to your image */
   background-size: cover;     /* scale image to cover entire masthead */

@@ -90,21 +90,19 @@ function updateContentHeightAndBackground() {
 			pageArticle.style.marginTop = offsetContent + "px";
 			pageArticle.style.marginBottom = "0px";
 			
-			const htmlTag = document.querySelector('.page--home[data-theme="dark"] body');
-			const htmlTagLight = document.querySelector('.page--home body');
 			
+			const htmlTag = document.querySelector('.page--home body');
+				
 			if (htmlTag) {
-				const bgColor = "#102951";
-				const bgColorLight = "#1a3f69";
 				const targetThree = document.querySelector(".author__content"); 
 				const origBannerHeight = targetThree.getBoundingClientRect().y + targetThree.getBoundingClientRect().height*1.25 - window.scrollY;
 				const mhHeight = mh.offsetHeight;
 				const changePoint = origBannerHeight*2-mhHeight;
 				
+				const bgColor = "var(--global-bg-color)";
+				const bgColorLight = "var(--global-bg-color-light)";
+							
 				htmlTag.style.background = "linear-gradient(to bottom, " + bgColorLight + " 0px, " + bgColorLight + " " + origBannerHeight + "px, " + bgColor + " " + changePoint + "px, " + bgColor + " 100%)";
-			} else if (htmlTagLight) {
-				htmlTagLight.style.background = "none";
-				htmlTagLight.style.backgroundColor = "var(--global-bg-color);"
 			}
 		}
 	}
@@ -129,6 +127,52 @@ observer.observe(htmlTag, {
 window.addEventListener("load", updateBannerHeight);
 window.addEventListener("resize", updateBannerHeight);
 window.addEventListener("scroll", updateBannerHeight);
+
+</script>
+
+<script>
+function updateSeparators() {
+  const seps = document.querySelectorAll('.links-sep');
+  seps.forEach(sep => sep.classList.remove('line-start'));
+	seps.forEach(sep => sep.classList.remove('line-end'));
+	
+	const tolerance = 2;
+
+  seps.forEach(sep => {
+    const prev = sep.previousElementSibling;
+    if (prev) {
+			const sepTop = sep.getBoundingClientRect().top;
+			const prevTop = prev.getBoundingClientRect().top;
+
+			if (sepTop > (prevTop + 10)) {
+				sep.classList.add('line-start');
+			}
+		}
+		const next = sep.nextElementSibling;
+		if (next) {
+			const sepTop = sep.getBoundingClientRect().top;
+			const nextTop = next.getBoundingClientRect().top;
+
+			if (nextTop > (sepTop + 10)) {
+				sep.classList.add('line-end');
+			}
+		}
+  });
+}
+
+function debounce(fn, wait = 100) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => fn.apply(null, args), wait);
+  };
+}
+
+const debouncedUpdate = debounce(updateSeparators, 150);
+
+window.addEventListener('load', debouncedUpdate);
+window.addEventListener('resize', debouncedUpdate);
+window.addEventListener('orientationchange', debouncedUpdate);
 
 </script>
 
