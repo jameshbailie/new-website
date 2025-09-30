@@ -15,8 +15,19 @@ html[data-theme="dark"] {
 
 	--global-text-color-light: #7a8288;
 	--global-link-color: #921800;
-	--global-text-color: #454a4f;
+	--global-text-color: #1f2124;
+	
+	/*
+	--global-border-color: #454A4F;
+	--global-border-color: #bdc1c4;
+	*/
+	--global-border-color: #7b7d7f;
+	
 	
 	--global-masthead-link-color: var(--global-link-color);
 	--author-content-custom-color: var(--global-link-color);
+	
+	--abstract-border-color: #52adc8;
+	--abstract-background-color: #eff6ff;
+	--abstract-color: #494e52;
 }

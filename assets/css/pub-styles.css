@@ -13,10 +13,10 @@ section div.page-content {
 }
 
 .details-abstract-pub[open] {
-  border: 2px solid #52adc8;   /* blue border */
-  background: #eff6ff;         /* light blue background */
+  border: 2px solid var(--abstract-border-color);   /* blue border */
+  background: var(--abstract-background-color);         /* light blue background */
   /*box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);*/
-  color: #494e52;
+  color: var(--abstract-color);
   margin-bottom: 1em;
 }
 
@@ -55,7 +55,7 @@ details p.details-p-pub {
   width: 2px;              
   height: 1.5em;           
   opacity: 0.8;
-  background: #494e52;    
+  background: var(--global-text-color);    
   margin-top: 0em;
   margin-right: 0.9em;  
   margin-left: 1em;       
@@ -75,10 +75,6 @@ details p.details-p-pub {
   opacity: 0;	
 }
 
-html[data-theme="dark"] .links-sep {
-  background: #ffffff;   
-}
-
 .arvix-logo {
   margin-left: 0em;
 }
@@ -92,7 +88,9 @@ html[data-theme="dark"] .links-sep {
 	justify-content: center;
 }
 
-
+.link-with-icon .icon #svg {
+	fill: var(--global-link-color);
+}
 
 
 
