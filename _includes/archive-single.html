@@ -42,7 +42,7 @@
 		{% endif %}
 		
 		{% if post.collection == 'teaching' %}
-			{{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | date: "%Y" }}.
+			{{post.role}}, {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.when_taught }}.
 		{% elsif post.collection == 'papers' %}
 					
 			{% assign authors_short_formatted = post.authors_short | replace: "!!me!!", "<b>JB</b>" %}

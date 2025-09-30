@@ -164,7 +164,18 @@ details p.details-p-pub {
 }
 
 
+.talk-date-with-location {
+	margin-bottom: 0pt;
+}
 
+.talk-byline {
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+}
+
+.content-without-abstract {
+	padding-top: 1.3em;
+}
 
 
 

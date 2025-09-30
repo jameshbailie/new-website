@@ -30,13 +30,15 @@ layout: default
           {% if page.read_time %}
             <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
           {% endif %}
-        {% if page.modified %}
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Date:</strong> <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time></p>
-        {% elsif page.date %}
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Date:</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></p>
-        {% endif %}
-        {% if page.location %}<p class="talk-byline" itemprop="description">{{page.type}}, {{page.location}}</p>{% endif %}
-
+					{% if page.date %}
+						{% if page.location %}
+							<p class="page__date talk-date-with-location">
+						{% else %}
+							<p class="page__date talk-date-without-location">
+						{% endif %}
+						<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Date:</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></p>
+					{% endif %}
+					{% if page.location %}<p class="talk-byline" itemprop="description">{{page.type}}, {{page.location}}</p>{% endif %}
         </header>
       {% endunless %}
 			
@@ -49,11 +51,17 @@ layout: default
 						<summary><b>Abstract</b></summary>
 						<p>{{page.abstract}}</p>
 					</details>
+					
+					{% if content != "" %}
+						<div class="page-content">{{ content }}</div>
+					{% endif %}
+				{% else %}
+					{% if content != "" %}
+						<div class="page-content content-without-abstract">{{ content }}</div>
+					{% endif %}
 				{% endif %}
 			
-        {% if content != "" %}
-					<div class="page-content">{{ content }}</div>
-				{% endif %}
+
 		
 				{% assign links = '<div class="div-links">' %}
 				{% assign links_separator = '<span class="links-sep"></span>' %}

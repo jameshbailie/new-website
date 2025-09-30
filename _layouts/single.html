@@ -30,12 +30,14 @@ layout: default
         <header>
           {% if page.title %}<h1 class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
 					
-					{% include buttons-for-detail.html %}
-					<script>
-						document.querySelector('.page__title').classList.add('header-with-buttons');
-						document.querySelector('.button-expand-container').classList.add('button-expand-container-aligned');
-					</script>
-					<br>
+					{% if page.collection == 'papers' %}
+						{% include buttons-for-detail.html %}
+						<script>
+							document.querySelector('.page__title').classList.add('header-with-buttons');
+							document.querySelector('.button-expand-container').classList.add('button-expand-container-aligned');
+						</script>
+						<br>
+					{% endif %}
 					
           {% if page.read_time %}
             <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
@@ -46,23 +48,23 @@ layout: default
         
         {% if page.collection == 'teaching' %}
           <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
-		{% elsif page.collection == 'papers' %}
-		
-			{% assign authors_long_formatted = page.authors_long | replace: "!!me!!", "James Bailie" %}
-			
-			{% if page.venue %}
-				{% assign byline = authors_long_formatted | append: ".<br>" %}
-				{% if page.to_appear %}
-					{% assign byline = byline | append: "To appear in " %}
-				{% endif %}
-				{% assign byline = byline | append: "<i>" | append: page.venue | append: "</i>, " %}
-		    {% else %}
-				{% assign byline = authors_long_formatted | append: ", " %}
-			{% endif %}
-	  
-		    {% assign year = page.date | date: "%Y" %}
-		    {% assign byline = byline | append: year | append: "." %}
-		    {{ byline }}
+				{% elsif page.collection == 'papers' %}
+				
+					{% assign authors_long_formatted = page.authors_long | replace: "!!me!!", "James Bailie" %}
+					
+					{% if page.venue %}
+						{% assign byline = authors_long_formatted | append: ".<br>" %}
+						{% if page.to_appear %}
+							{% assign byline = byline | append: "To appear in " %}
+						{% endif %}
+						{% assign byline = byline | append: "<i>" | append: page.venue | append: "</i>, " %}
+						{% else %}
+						{% assign byline = authors_long_formatted | append: ", " %}
+					{% endif %}
+				
+					{% assign year = page.date | date: "%Y" %}
+					{% assign byline = byline | append: year | append: "." %}
+					{{ byline }}
         {% endif %}    
         </header>
       {% endunless %}
@@ -75,12 +77,21 @@ layout: default
 					<summary><b>Abstract</b></summary>
 					<p>{{page.abstract}}</p>
 				</details>
+				
+				{% if content != "" %}
+					<div class="page-content">{{ content }}</div>
+				{% endif %}
+			{% else %}
+				{% if content != "" %}
+					<div class="page-content content-without-abstract">{{ content }}</div>
+				{% endif %}
+			{% endif %}
+		{% else %}
+			{% if content != "" %}
+				<div class="page-content">{{ content }}</div>
 			{% endif %}
 		{% endif %}
 		
-		{% if content != "" %}
-			<div class="page-content">{{ content }}</div>
-		{% endif %}
 
 		{% if page.collection == 'papers' %}
 			{% if page.citation %}
@@ -300,17 +311,17 @@ layout: default
 		{% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
 		</section>
 
-      <footer class="page__meta">
+		<footer class="page__meta">
         {% if site.data.ui-text[site.locale].meta_label %}
           <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
         {% endif %}
         <!-- {% include page__taxonomy.html %} -->
       </footer>
 
-      {% if page.share %}{% include social-share.html %}{% endif %}
+		{% if page.share %}{% include social-share.html %}{% endif %}
 
-      <!-- {% include post_pagination.html %} -->
-    </div>
+		<!-- {% include post_pagination.html %} -->
+	</div>
 
     {% if site.comments.provider and page.comments %}
       {% include comments.html %}
