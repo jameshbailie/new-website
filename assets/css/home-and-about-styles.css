@@ -1,0 +1,44 @@
+.page__content .about-intro {
+	font-size: 1.15em;
+}
+
+.page__content .div-contacts {
+	display: flex;
+	flex-direction: column;
+}
+
+.text-with-icon {        
+  display: inline-flex;
+	/*align-items: center;*/
+  gap: 0.5em;         
+  margin-bottom: 1em;
+}
+
+.text-with-icon .icon {
+  position: relative;
+	top: 2px;
+}
+
+.text-with-icon .label {
+  
+}
+
+.multiline-text-with-icon {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+
+.multiline-text-with-icon .icon {
+	position: relative;
+	top: 0.5px;
+}
+
+.multiline-text-with-icon .label {
+  
+}
+
+.text-with-icon .icon #svg {
+	fill: var(--global-link-color);
+}
