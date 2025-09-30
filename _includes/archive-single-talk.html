@@ -36,32 +36,33 @@
 
 
     {% if post.date %}<p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {{ post.date | date: '%B %d, %Y' }}</p>{% endif %}
-    {% if post.venue %}<p class="archive__item-excerpt" itemprop="description">{{post.type}}, {{ post.venue }},  {{post.location}}</p>{% endif %}
+    {% if post.location %}<p class="archive__item-excerpt" itemprop="description">{{post.type}}, {{post.location}}</p>{% endif %}
 		
 		{% if post.abstract %}
 			{% include abstract-in-excerpt.html %}
-			<script>
-				let prev = document.currentScript.previousElementSibling;
-				let counter = 0;
-				
-				while (
-					prev && 
-					!(prev.tagName.toLowerCase() === "p" && (prev.classList.contains("archive__item-excerpt") || prev.classList.contains("page__meta"))) &&
-					counter < 10) {
-						console.log(prev);
-						prev = prev.previousElementSibling;
-						counter++;
-				}
-				
-				console.log(prev);
-				
-				if (prev && counter < 11) {
-					prev.classList.add("excerpt-with-abstract");
-				} else {
-					console.log("Error retrieving previous archive__item-excerpt or page__meta");
-				}
-			</script>
+			{% assign class-to-add = "excerpt-with-abstract" %}
+		{% else %}
+			{% assign class-to-add = "excerpt-without-abstract" %}
 		{% endif %}
+		
+		<script>
+			{let prev = document.currentScript.previousElementSibling;
+			let counter = 0;
+			
+			while (
+				prev && 
+				!(prev.tagName.toLowerCase() === "p" && (prev.classList.contains("archive__item-excerpt") || prev.classList.contains("page__meta"))) &&
+				counter < 10) {
+					prev = prev.previousElementSibling;
+					counter++;
+			}
+			
+			if (prev && counter < 11) {
+				prev.classList.add("{{ class-to-add }}");
+			} else {
+				console.log("Error retrieving previous archive__item-excerpt or page__meta");
+			}}
+		</script>
     
   </article>
 </div>

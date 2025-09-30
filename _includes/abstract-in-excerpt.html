@@ -6,19 +6,19 @@
 		<p>{{post.abstract}}</p>
 </details>
 <script>
-	const detail = document.currentScript.previousElementSibling;
+	{let detail = document.currentScript.previousElementSibling;
 	
 	if (detail && detail.tagName.toLowerCase() === "details") {
 		detail.addEventListener("toggle", () => {
-			const isOpen = detail.open;
+			let isOpen = detail.open;
 			detail.classList.toggle("archive__item-excerpt", !isOpen);
 			detail.classList.toggle("archive__item-excerpt-expanded", isOpen);
 
-			const prevP = detail.previousElementSibling;
+			let prevP = detail.previousElementSibling;
 			if (prevP && prevP.classList.contains("excerpt-with-abstract")) {
 				prevP.classList.toggle("archive__item-excerpt", !isOpen);
 				prevP.classList.toggle("archive__item-excerpt-expanded", isOpen)
 			}
 		});
-	}
+	}}
 </script>

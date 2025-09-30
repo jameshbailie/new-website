@@ -9,6 +9,10 @@
 	margin-top: 0em;
 }
 
+.excerpt-without-abstract {
+	margin-bottom: 2.6em;
+}
+
 .archive__item-excerpt-expanded {
 	font-size: 0.9rem;
 }
@@ -73,6 +77,10 @@ details p.details-p-pub {
 .link-with-icon  .icon {
   position: relative;
   top: 2px;  /* move icon down */
+}
+
+.link-with-icon .icon.topZeroPad {
+  top: 0px; /* overwrite default padding */
 }
 
 .links-sep {

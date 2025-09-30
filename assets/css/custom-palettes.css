@@ -23,7 +23,8 @@ html[data-theme="dark"] {
 
   --global-hightlight-color: #921800;
 	
-	--global-text-color-light: #7a8288;
+	/*--global-text-color-light: #7a8288;*/
+	--global-text-color-light: #3f4347;
 	--global-link-color: var(--global-hightlight-color);
 	--global-text-color: #1f2124;
 	
