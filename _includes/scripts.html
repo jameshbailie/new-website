@@ -1,3 +1,7 @@
 <script type="module" src="{{ base_path }}/assets/js/main.min.js"></script>
 
-{% include analytics.html %}
+{% comment %}
+	<!-- Analytics is now included in _includes/head/custom.html (so that it loads in head, not body, of the page -->
+	{% include analytics.html %}
+{% endcomment %}
+
