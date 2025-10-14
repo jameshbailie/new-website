@@ -176,6 +176,18 @@ layout: default
 		
 
 		{% if page.collection == 'papers' %}
+		
+			{% assign file_folder = page.permalink | slice: 0, 8 %}
+
+			{% if file_folder != '/papers/' %}
+				{% capture msg %}
+				ERROR: Expected permalink to begin with '/papers/', got '{{ permalink }}'
+				{% endcapture %}
+				{{ msg | upcase | divided_by: 0 }}
+			{% endif %}
+
+			{% assign file_name = page.permalink | slice: 8, page.permalink.size %}
+			
 			{% if page.citation %}
 			  <details>
 				<summary class="details-summary-pub">Suggested Citation</summary>
@@ -185,7 +197,9 @@ layout: default
 			
 			{% if page.bibtex_url %}
 				{% if page.bibtex_url == 'true' %}
-					{% assign page.bibtex_url = '/files/' | append: page.file_name | append: '.bib' %}
+					{% assign bibtex_url = '/files/bibs/' | append: file_name | append: '.bib' %}
+				{% else %}
+					{% assign bibtex_url = page.bibtex_url %}
 				{% endif %}
 				
 				<details>
@@ -202,7 +216,7 @@ layout: default
 				</details>
 						  
 				<script>
-				fetch("{{ page.bibtex_url }}")
+				fetch("{{ bibtex_url }}")
 				  .then(response => {
 					if (!response.ok) {
 					  if (response.status === 404) {
@@ -255,7 +269,7 @@ layout: default
 			{% if page.version_history %}
 				<details>
 					<summary class="details-summary-pub">Version history</summary>
-					<p class="details-p-pub">Here is the version history.</p>
+					<p class="details-p-pub">{{ page.version_history }}</p>
 				</details>
 			{% endif %}
 			
@@ -265,10 +279,12 @@ layout: default
 			
 			{% if page.paper_url %}
 				{% if page.paper_url == 'true' %}
-					{% assign page.paper_url = '/files/' | append: page.file_name | append: '.pdf' %}
+					{% assign paper_url = '/files/papers/' | append: file_name | append: '.pdf' %}
+				{% else %}
+					{% assign paper_url = page.paper_url %}
 				{% endif %}
 			
-				{% assign links = links | append: '<a href="' | append: page.paper_url | append: '" class="link-with-icon" target="_blank">
+				{% assign links = links | append: '<a href="' | append: paper_url | append: '" class="link-with-icon" target="_blank">
 				<span class="icon">
 				<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="2 2 28 28">
 				  <defs>
@@ -285,19 +301,15 @@ layout: default
 				  <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="26" height="26"/>
 				</svg></span>
 				<span class="label">Paper</span>
-				</a>' %}
-			{% endif %}
-			
-			{% if page.preprint_url %}
+				</a>' %}			
+			{% elsif page.preprint_url %}
 				{% if page.preprint_url == 'true' %}
-					{% assign page.preprint_url = '/files/' | append: page.file_name | append: '.pdf' %}
-				{% endif %}
-				
-				{% if page.paper_url %}
-					{% assign links = links | append: links_separator %}
+					{% assign preprint_url = '/files/papers/' | append: file_name | append: '.pdf' %}
+				{% else %}
+					{% assign preprint_url = page.preprint_url %}
 				{% endif %}
 			
-				{% assign links = links | append: '<a href="' | append: page.preprint_url | append: '" class="link-with-icon" target="_blank">
+				{% assign links = links | append: '<a href="' | append: preprint_url | append: '" class="link-with-icon" target="_blank">
 				<span class="icon">
 				<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="2 2 28 28">
 				  <defs>
