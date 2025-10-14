@@ -5,8 +5,7 @@ type: "Talk/Invited talk/seminar/colloquium/etc."
 permalink: /talks/2021-01-01-Name-of-talk
 date: 2020-01-01
 location: "Conference name, location. This cannot be missing (I think)."
-abstract: "Add the abstract here. You can enclose the abstract in single or double quotes. But if the same delimitator appears in the abstract, you'll need to replace it with &rsquo; (for single quote) or &quot; (for double quote) "
-file_name: '2020-01-01-Name-of-talk'
+abstract: "Add the abstract here.  In-line maths \\(\\exp(-i \\pi) + 1 = 0\\). You can enclose the abstract in single or double quotes. But if the same delimitator appears in the abstract, you'll need to replace it with &rsquo; (for single quote) or &quot; (for double quote) "
 paper_url: 'e.g. /files/paper1.pdf'
 slides_url: 'true or a custom filepath, e.g. /files/slides1.pdf'
 poster_url: 'e.g. /files/poster-url.pdf'

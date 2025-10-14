@@ -16,6 +16,17 @@ layout: default
 
 <div id="main" role="main">
   {% include sidebar.html %}
+	
+	{% assign file_folder = page.permalink | slice: 0, 7 %}
+
+	{% if file_folder != '/talks/' %}
+		{% capture msg %}
+		ERROR: Expected permalink to begin with '/talks/', got '{{ permalink }}'
+		{% endcapture %}
+		{{ msg | upcase | divided_by: 0 }}
+	{% endif %}
+
+	{% assign file_name = page.permalink | slice: 7, page.permalink.size %}
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
@@ -80,14 +91,16 @@ layout: default
 				
 				{% if page.slides_url %}
 					{% if page.slides_url == 'true' %}
-						{% assign page.slides_url = '/files/' | append: page.file_name | append: '.pdf' %}
+						{% assign slides_url = '/files/slides/' | append: file_name | append: '.pdf' %}
+					{% else %}
+						{% assign slides_url = page.slides_url %}
 					{% endif %}
 					
 					{% if page.paper_url %}
 						{% assign links = links | append: links_separator %}
 					{% endif %}
 						
-					{% assign links = links | append: '<a href="' | append: page.slides_url | append: '" class="link-with-icon" target="_blank">
+					{% assign links = links | append: '<a href="' | append: slides_url | append: '" class="link-with-icon" target="_blank">
 					<span class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="2 2 28 28">
 						<defs>
