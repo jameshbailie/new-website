@@ -2,7 +2,7 @@
 title: "Why data anonymization has not taken off"
 collection: papers
 category: privacy
-permalink: /papers/2025-09-12-Why-Data-Anonymization-Has-Not-Taken-Off
+permalink: /papers/2025-09-12-Why-data-anonymization-has-not-taken-off
 date: 2025-09-12
 venue: 'Consumer Needs and Solutions'
 to_appear: true
@@ -20,4 +20,3 @@ talk_url: 'talk-url'
 file_name: '[[2020-01-01-Name-Of-Paper]]'
 ---
 
-Put any awards/media coverage/etc. here?
