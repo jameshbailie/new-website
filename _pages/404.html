@@ -1,0 +1,55 @@
+---
+title: "Page Not Found"
+sitemap: false
+permalink: /404.html
+---
+
+Sorry, but the page you were trying to view does not exist.
+
+
+<script>
+	/*const redirects = {
+    '/Papers/papers/Stat213.pdf': '/files/Stat213.pdf',
+    '/Papers/papers/Poster.pdf': '/files/Poster.pdf'
+  };*/
+	
+	const redirects = {
+    {% for r in site.data.redirects %}
+      "{{ r.from }}": "{{ r.to }}"{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+
+  const target = redirects[window.location.pathname];
+  /*if (target) window.location.replace(target);*/
+	
+	if (target) {
+    /* Create <meta http-equiv="refresh" content="0; url=target">*/
+    const meta = document.createElement('meta');
+    meta.httpEquiv = 'refresh';
+    meta.content = `0; url=${target}`;
+    document.head.appendChild(meta);
+
+    /* Create <link rel="canonical" href="target">*/
+    const canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    canonical.href = target;
+    document.head.appendChild(canonical);
+
+    /* Update the visible content:*/
+		const container = document.querySelector('.page-content');
+    if (container) {
+      const noticeZero = document.createElement('p');
+			container.appendChild(noticeZero);
+			
+			const notice = document.createElement('p');
+      notice.innerHTML = `Redirecting you to <a href="${target}">${target}</a>...`;
+      container.appendChild(notice);
+			
+			const noticeTwo = document.createElement('p');
+      noticeTwo.innerHTML = `Click <a href="${target}">here</a> if you aren't automatically redirected.`;
+      container.appendChild(noticeTwo);
+    } else {
+      console.warn('Could not find .page-content element to append message.');
+    }
+  }
+</script>
