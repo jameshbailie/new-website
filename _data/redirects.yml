@@ -24,6 +24,8 @@
   to: /files/papers/2021-06-16-Asymptotic-statistics.pdf
 - from: /Papers/papers/UNECE2019.pdf
   to: /files/papers/2019-10-29-ABS-perturbation-methodology-through-the-lens-of-differential-privacy.pdf
+- from: /CV/CV.pdf
+  to: /files/cv.pdf
 - from: /Papers/slides/amsi2017.pdf
   to: /files/slides/.pdf
 - from: /Papers/slides/ISIPTA23poster.pdf
