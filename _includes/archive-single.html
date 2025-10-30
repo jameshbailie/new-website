@@ -45,12 +45,44 @@
 			{{post.role}}, <i>{{ post.venue }}</i>, {{ post.when_taught }}.
 		{% elsif post.collection == 'papers' %}
 					
-			{% assign authors_short_formatted = post.authors_short | replace: "!!me!!", "<b>JB</b>" %}
+			{% assign authors_short_formatted = post.authors_short | replace: "!!me!!", "<b>JB</b>" |
+				replace: ",!!order!!!!equal!!", ",\(\hspace{-0.15em}^{\dagger*}\)" |
+				replace: ",!!equal!!!!order!!", ",\(\hspace{-0.15em}^{*\dagger}\)" |
+				replace: ",!!order!!", ",\(\hspace{-0.15em}^\dagger\)" | 
+				replace: ",!!equal!!", ",\(\hspace{-0.15em}^*\)" |
+				replace: "!!order!!!!equal!!,", ",\(\hspace{-0.15em}^{\dagger*}\)" |
+				replace: "!!equal!!!!order!!,", ",\(\hspace{-0.15em}^{*\dagger}\)" |
+				replace: "!!order!!,", ",\(\hspace{-0.15em}^\dagger\)" | 
+				replace: "!!equal!!,", ",\(\hspace{-0.15em}^*\)" %}
+
+			{% assign parts = authors_short_formatted | split: '!!' %}
+			
+			{% if parts.size > 1 %}
+				{% assign rest = parts | slice: 1, parts.size %}
+				{% assign rest = rest | join: "" | strip | replace: '  ', '' | downcase %}
+
+				{% if rest == "orderequal" %}
+					{% assign byline_sep = ".\(\hspace{-0.15em}^{\dagger*}\) " %}
+				{% elsif rest == "equalorder" %}
+					{% assign byline_sep = ".\(\hspace{-0.15em}^{*\dagger}\) " %}
+				{% elsif rest == "equal" %}
+					{% assign byline_sep = ".\(\hspace{-0.15em}^{*}\) " %}
+				{% elsif rest == "order" %}
+					{% assign byline_sep = ".\(\hspace{-0.15em}^{\dagger}\) " %}
+				{% else %}
+					{% capture msg %}
+						ERROR: Rest '{{ rest }}' not handled by any case.
+					{% endcapture %}
+					{{ rest | upcase | divided_by: 0 }}
+				{% endif %}
+			{% else %}
+				{% assign byline_sep = ". " %}
+			{% endif %}
+
+			{% assign byline = parts[0] | append: byline_sep %}
 			
 			{% if post.to_appear %}
-				{% assign byline = authors_short_formatted | append: ". To appear in " %}
-			{% else %}
-				{% assign byline = authors_short_formatted | append: ". " %}
+				{% assign byline = byline | append: "To appear in " %}
 			{% endif %}
 			
 			{% if post.venue %}
