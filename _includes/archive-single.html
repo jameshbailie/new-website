@@ -46,14 +46,14 @@
 		{% elsif post.collection == 'papers' %}
 					
 			{% assign authors_short_formatted = post.authors_short | replace: "!!me!!", "<b>JB</b>" |
-				replace: ",!!order!!!!equal!!", ",\(\hspace{-0.15em}^{\dagger*}\)" |
-				replace: ",!!equal!!!!order!!", ",\(\hspace{-0.15em}^{*\dagger}\)" |
-				replace: ",!!order!!", ",\(\hspace{-0.15em}^\dagger\)" | 
-				replace: ",!!equal!!", ",\(\hspace{-0.15em}^*\)" |
-				replace: "!!order!!!!equal!!,", ",\(\hspace{-0.15em}^{\dagger*}\)" |
-				replace: "!!equal!!!!order!!,", ",\(\hspace{-0.15em}^{*\dagger}\)" |
-				replace: "!!order!!,", ",\(\hspace{-0.15em}^\dagger\)" | 
-				replace: "!!equal!!,", ",\(\hspace{-0.15em}^*\)" %}
+				replace: ",!!order!!!!equal!!", ",\(\negthinspace^{\dagger*}\)" |
+				replace: ",!!equal!!!!order!!", ",\(\negthinspace^{*\dagger}\)" |
+				replace: ",!!order!!", ",\(\negthinspace^\dagger\)" | 
+				replace: ",!!equal!!", ",\(\negthinspace^*\)" |
+				replace: "!!order!!!!equal!!,", ",\(\negthinspace^{\dagger*}\)" |
+				replace: "!!equal!!!!order!!,", ",\(\negthinspace^{*\dagger}\)" |
+				replace: "!!order!!,", ",\(\negthinspace^\dagger\)" | 
+				replace: "!!equal!!,", ",\(\negthinspace^*\)" %}
 
 			{% assign parts = authors_short_formatted | split: '!!' %}
 			
@@ -62,13 +62,13 @@
 				{% assign rest = rest | join: "" | strip | replace: '  ', '' | downcase %}
 
 				{% if rest == "orderequal" %}
-					{% assign byline_sep = ".\(\hspace{-0.15em}^{\dagger*}\) " %}
+					{% assign byline_sep = ".\(\negthinspace^{\dagger*}\) " %}
 				{% elsif rest == "equalorder" %}
-					{% assign byline_sep = ".\(\hspace{-0.15em}^{*\dagger}\) " %}
+					{% assign byline_sep = ".\(\negthinspace^{*\dagger}\) " %}
 				{% elsif rest == "equal" %}
-					{% assign byline_sep = ".\(\hspace{-0.15em}^{*}\) " %}
+					{% assign byline_sep = ".\(\negthinspace^{*}\) " %}
 				{% elsif rest == "order" %}
-					{% assign byline_sep = ".\(\hspace{-0.15em}^{\dagger}\) " %}
+					{% assign byline_sep = ".\(\negthinspace^{\dagger}\) " %}
 				{% else %}
 					{% capture msg %}
 						ERROR: Rest '{{ rest }}' not handled by any case.
