@@ -177,6 +177,13 @@ details p.details-p-pub {
 	padding-top: 1.3em;
 }
 
+.buffer-teaching-content {
+	border: none; 
+	height: 2px; 
+	background-color: var(--global-border-color); 
+	width: 100%; 
+	margin-bottom: 2em;
+}
 
 
 
