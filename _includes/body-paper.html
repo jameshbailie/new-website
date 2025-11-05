@@ -1,0 +1,43 @@
+{% if page.abstract %}
+	<details class="details-abstract-pub">
+		<summary><b>Abstract</b></summary>
+		<p>{{page.abstract}}</p>
+	</details>
+	
+	{% if content_stripped != "" %}
+		<div class="page-content">{{ content }}</div>
+	{% endif %}
+{% else %}
+	{% if content_stripped != "" %}
+		<div class="page-content content-without-abstract">{{ content }}</div>
+	{% endif %}
+{% endif %}
+
+{% assign file_folder = page.permalink | slice: 0, 8 %}
+
+{% if file_folder != '/papers/' %}
+	{% capture msg %}
+	ERROR: Expected permalink to begin with '/papers/', got '{{ permalink }}'
+	{% endcapture %}
+	{{ msg | upcase | divided_by: 0 }}
+{% endif %}
+
+{% assign file_name = page.permalink | slice: 8, page.permalink.size %}
+
+{% if page.citation %}
+  <details>
+	<summary class="details-summary-pub">Suggested Citation</summary>
+	<p class="details-p-pub"> {{ page.citation }} </p>
+  </details>
+{% endif %}
+
+{% include bibtex-paper.html %}
+
+{% if page.version_history %}
+	<details>
+		<summary class="details-summary-pub">Version history</summary>
+		<p class="details-p-pub">{{ page.version_history }}</p>
+	</details>
+{% endif %}
+
+{% include links-paper.html %}

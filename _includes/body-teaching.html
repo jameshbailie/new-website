@@ -1,0 +1,38 @@
+{% if page.description %}
+	<details class="details-abstract-pub">
+		<summary><b>Description</b></summary>
+		<p>{{page.description}}</p>
+	</details>
+	{% if page.instructor or page.instructors or page.notes %}
+		<div class="page-content content-with-abstract">
+	{% endif %}
+{% else %}
+	{% if page.instructor or page.instructors or page.notes %}
+		<div class="page-content content-without-abstract">
+	{% endif %}
+{% endif %}
+
+{% if page.instructor or page.instructors or page.notes %}
+	{% if page.instructor %}
+		Instructor of record: {{ page.instructor }}
+	{% elsif page.instructors %}
+		Instructors of record: {{ page.instructors }}
+	{% endif %}
+	
+	{% if page.notes %}
+		{% if page.instructor or page.instructors %}
+			<br>
+		{% endif %}
+		{{ page.notes }}
+	{% endif %}
+	</div>
+{% endif %}
+
+{% include links-course.html %}
+	
+{% if content_stripped != "" %}
+	<div class="page-content">
+		<hr class="buffer-teaching-content">
+		{{ content }}
+	</div>
+{% endif %}
