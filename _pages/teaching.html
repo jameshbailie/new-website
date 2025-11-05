@@ -7,6 +7,27 @@ author_profile: true
 
 {% include base_path %}
 
-{% for post in site.teaching reversed %}
+{% assign now = 'now' | date: '%s' %}
+{% assign current_courses = '' | split: '' %}
+{% assign past_courses = '' | split: '' %}
+
+{% for course in site.teaching %}
+  {% assign course_date = course.end_date | date: '%s' %}
+  {% if course_date >= now %}
+    {% assign current_courses = current_courses | push: course %}
+  {% else %}
+    {% assign past_courses = past_courses | push: course %}
+  {% endif %}
+{% endfor %}
+
+{% if current_courses.size > 0 %}
+  <h2>Upcoming & Current Courses</h2><hr />
+  {% for post in current_courses reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+  <h2>Past Courses</h2><hr />
+{% endif %}
+
+{% for post in past_courses reversed %}
   {% include archive-single.html %}
 {% endfor %}

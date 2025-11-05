@@ -13,6 +13,33 @@ author_profile: true
 	document.querySelector('.button-expand-container').classList.add('button-expand-container-aligned');
 </script>
 
-{% for post in site.talks reversed %}
+
+
+{% assign now = 'now' | date: '%s' %}
+{% assign upcoming_talks = '' | split: '' %}
+{% assign past_talks = '' | split: '' %}
+
+{% for talk in site.talks %}
+	{% assign talk_date = talk.date | date: '%s' %}
+	{% if talk_date >= now %}
+		{% assign upcoming_talks = upcoming_talks | push: talk %}
+	{% else %}
+		{% assign past_talks = past_talks | push: talk %}
+	{% endif %}
+{% endfor %}
+
+{% if upcoming_talks.size > 0 %}
+	<h2>Upcoming Talks</h2><hr />
+	{% for post in upcoming_talks reversed %}
+	  {% include archive-single-talk.html %}
+	{% endfor %}
+	<h2>Past Talks</h2><hr />
+{% endif %}
+
+{% for post in past_talks reversed %}
   {% include archive-single-talk.html %}
 {% endfor %}
+
+
+
+
