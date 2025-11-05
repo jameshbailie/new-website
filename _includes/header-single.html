@@ -22,7 +22,32 @@
 	{% if page.code %}
 		{{ page.code }}<br>
 	{% endif %}
-  {{ page.role }}, {{ page.type }}, <i>{{ page.venue }}</i><br>
+
+	{% assign tagline = "" %}
+	{% if page.role %}
+	  {% assign tagline = tagline | append: page.role %}
+	  {% if page.type or page.venue_long or page.venue %}
+	  	{% assign tagline = tagline | append: ", " %}
+	  {% endif %}
+	{% endif %}
+
+	{% if page.type %}
+		{% assign tagline = tagline | append: page.type %}
+		{% if page.venue_long or page.venue %}
+			{% assign tagline = tagline | append: ", " %}
+		{% endif %}
+	{% endif %}
+
+	{% if page.venue_long %}
+		{% assign tagline = tagline | append:  "<i>" | append: page.venue_long | append: "</i>" %}
+	{% elsif page.venue %}
+		{% assign tagline = tagline | append:  "<i>" | append: page.venue | append: "</i>" %}
+	{% endif %}
+
+	{% if tagline != "" %}
+		{{ tagline }}<br>
+	{% endif %}
+
 	Taught:
 	{% if page.when_taught_long %}
 		{{ page.when_taught_long }}
