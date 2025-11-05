@@ -21,11 +21,11 @@ author_profile: true
 {% endfor %}
 
 {% if current_courses.size > 0 %}
-  <h2>Upcoming & Current Courses</h2><hr />
+  <h2>Upcoming & current courses</h2><hr />
   {% for post in current_courses reversed %}
     {% include archive-single.html %}
   {% endfor %}
-  <h2>Past Courses</h2><hr />
+  <h2>Past courses</h2><hr />
 {% endif %}
 
 {% for post in past_courses reversed %}

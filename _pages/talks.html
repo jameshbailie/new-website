@@ -29,11 +29,11 @@ author_profile: true
 {% endfor %}
 
 {% if upcoming_talks.size > 0 %}
-	<h2>Upcoming Talks</h2><hr />
+	<h2>Upcoming talks</h2><hr />
 	{% for post in upcoming_talks reversed %}
 	  {% include archive-single-talk.html %}
 	{% endfor %}
-	<h2>Past Talks</h2><hr />
+	<h2>Past talks</h2><hr />
 {% endif %}
 
 {% for post in past_talks reversed %}
