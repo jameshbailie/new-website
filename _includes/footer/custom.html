@@ -20,7 +20,6 @@
 
 
 <!-- start James's custom footer snippets -->
-
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const links = document.querySelectorAll('a[href="/files/cv.pdf"]');
@@ -31,6 +30,7 @@
 </script>
 
 <script>
+	{% comment %} Add class "page--home" to home page {% endcomment %}
   (function() {
     let canonical = document.querySelector('link[rel="canonical"]');
     let path = canonical ? (new URL(canonical.href, location.href)).pathname : location.pathname;
@@ -42,7 +42,7 @@
 </script>
 
 <script>
-
+{% comment %}Make banner move up as you scroll {% endcomment %}
 function updateBannerHeight() {
   const home = document.querySelector(".page--home");
 	if (home) {
@@ -130,6 +130,7 @@ window.addEventListener("scroll", updateBannerHeight);
 
 </script>
 
+{% comment %} Update the separator between links at the bottom of talk/paper as the window is resized, so that there is no separator if the links are separated by a new line. {% endcomment %}
 <script>
 function updateSeparators() {
   const seps = document.querySelectorAll('.links-sep');
