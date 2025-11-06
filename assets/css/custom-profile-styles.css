@@ -16,6 +16,10 @@ html[data-theme="dark"] .social-icons .ai-orcid, .social-icons .ai-orcid-square 
   color: var(--global-text-color);   
 }
 
+.social-icons .fa-linkedin {
+  color: var(--global-text-color);
+}
+
 .author__content-custom {
   composes: author__content;
   color: var(--author-content-custom-color);
