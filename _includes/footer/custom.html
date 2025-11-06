@@ -30,6 +30,22 @@
 </script>
 
 <script>
+$(function() {
+  // Define a custom jQuery selector :external
+  $.expr[':'].external = function(obj) {
+    return !obj.href.match(/^mailto\:/)
+      && (obj.hostname != location.hostname)
+      && !obj.href.match(/^javascript\:/)
+      && !obj.href.match(/^$/);
+  };
+
+  // Add target="_blank" to all external links
+  $('a:external').attr('target', '_blank');
+});
+</script>
+
+
+<script>
 	{% comment %} Add class "page--home" to home page {% endcomment %}
   (function() {
     let canonical = document.querySelector('link[rel="canonical"]');
