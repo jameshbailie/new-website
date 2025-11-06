@@ -20,3 +20,35 @@ html.js.page--home .page__content h2 {
 html.js.page--home .page__content h3 {
 	color: var(--global-hightlight-color);
 }
+
+.pdf-wrapper-container {
+  position: relative;  /* create containing block */
+  overflow: visible;   /* allow child to spill out */
+}
+
+.pdf-wrapper {
+  position: absolute;  /* positioned relative to .container */
+  top: 0;
+  left: 0;
+
+  /* Let it grow to fill the viewport, but not exceed it */
+  width: 60vw;
+  height: 60vh;
+
+  /* Optional: ensure it stays above siblings if overlapping */
+  z-index: 10;
+}
+
+/* When sidebar collapses into the top bar (roughly -- this was just eyeballed, probably super janky) */
+@media (max-width: 930px) {
+  .pdf-wrapper {
+    width: 90vw;   
+    height: 60vh;  
+  }
+}
+
+.pdf-viewer {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
