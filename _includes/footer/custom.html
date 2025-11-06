@@ -20,7 +20,9 @@
 
 
 <!-- start James's custom footer snippets -->
+
 <script>
+	{% comment %} Add target=blank to CV {% endcomment %}
   document.addEventListener("DOMContentLoaded", function() {
     const links = document.querySelectorAll('a[href="/files/cv.pdf"]');
     links.forEach(link => {
@@ -30,18 +32,16 @@
 </script>
 
 <script>
-$(function() {
-  // Define a custom jQuery selector :external
-  $.expr[':'].external = function(obj) {
-    return !obj.href.match(/^mailto\:/)
-      && (obj.hostname != location.hostname)
-      && !obj.href.match(/^javascript\:/)
-      && !obj.href.match(/^$/);
-  };
-
-  // Add target="_blank" to all external links
-  $('a:external').attr('target', '_blank');
-});
+	{% comment %} Add target=blank to external links {% endcomment %}
+	$(function() {
+	  $.expr[':'].external = function(obj) {
+	    return !obj.href.match(/^mailto\:/)
+	      && (obj.hostname != location.hostname)
+	      && !obj.href.match(/^javascript\:/)
+	      && !obj.href.match(/^$/);
+	  };
+	  $('a:external').attr('target', '_blank');
+	});
 </script>
 
 
