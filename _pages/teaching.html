@@ -12,9 +12,13 @@ author_profile: true
 {% assign past_courses = '' | split: '' %}
 
 {% for course in site.teaching %}
-  {% assign course_date = course.end_date | date: '%s' %}
-  {% if course_date >= now %}
-    {% assign current_courses = current_courses | push: course %}
+  {% if course.end_date %}
+    {% assign course_date = course.end_date | date: '%s' %}
+    {% if course_date >= now %}
+      {% assign current_courses = current_courses | push: course %}
+    {% else %}
+      {% assign past_courses = past_courses | push: course %}
+    {% endif %}
   {% else %}
     {% assign past_courses = past_courses | push: course %}
   {% endif %}
