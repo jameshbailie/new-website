@@ -1,0 +1,22 @@
+.updates-list {
+
+}
+
+html.js.page--home .page__content a {
+  color: var(--home-link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+html.js.page--home .page__content a:hover {
+  color: var(--global-link-color);  
+  text-decoration: underline; 
+}
+
+html.js.page--home .page__content h2 {
+	color: var(--global-hightlight-color);
+}
+
+html.js.page--home .page__content h3 {
+	color: var(--global-hightlight-color);
+}

@@ -5,8 +5,11 @@ html[data-theme="dark"] {
 	--global-bg-color-light: #1a3f69;
 	--global-footer-bg-color: #2c384c;
 	
-	--global-link-color: #ffb39c;
+	--global-hightlight-color: #ffb39c;
+	--global-link-color: var(--global-hightlight-color);
+
 	--author-content-custom-color: var(--global-text-color);
+	--home-link-color: #ffece6;
 	
 	--abstract-border-color: var(--global-border-color);
 	/*--abstract-background-color: color-mix(in srgb, black 50%, var(--global-bg-color) 50%);*/
@@ -21,12 +24,13 @@ html[data-theme="dark"] {
 	--global-bg-color-light: #E9F4F8;
 	--global-footer-bg-color: #ced7de;
 
-  --global-hightlight-color: #921800;
+	--global-hightlight-color: #921800;
 	
 	/*--global-text-color-light: #7a8288;*/
 	--global-text-color-light: #3f4347;
 	--global-link-color: var(--global-hightlight-color);
 	--global-text-color: #1f2124;
+	--home-link-color: #500d00; /*430900;*/
 	
 	/*
 	--global-border-color: #454A4F;
@@ -45,7 +49,7 @@ html[data-theme="dark"] {
 	--abstract-color: #494e52;
 	
 	--bibtex-block-background-color: #c6c8cc;
-  --bibtex-block-border-color: #808488;
+  	--bibtex-block-border-color: #808488;
 	--bibtex-block-color: #494e52;
 	--bibtex-block-button-background-color: #9ca3af;
 	--bibtex-block-button-hover-background-color: #878b8f;

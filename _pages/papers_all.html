@@ -14,7 +14,6 @@ author_profile: true
 	document.querySelector('.button-expand-container').classList.add('button-expand-container-aligned');
 </script>
 
-<!-- New style rendering if publication categories are defined -->
 {% for post in site.papers reversed %}
   {% include archive-single.html %}
 {% endfor %}
@@ -22,4 +21,4 @@ author_profile: true
 
 <br>
 <p class="archive__item-excerpt">\(^\dagger\) indicates alphabetical ordering of authors.</p>
-<!--<p class="archive__item-excerpt">\(^\dagger\) indicates alphabetical ordering of authors and \(^*\) equal contribution.</p>-->
+{% comment %}<!--<p class="archive__item-excerpt">\(^\dagger\) indicates alphabetical ordering of authors and \(^*\) equal contribution.</p>-->{% endcomment %}

@@ -1,0 +1,21 @@
+{% assign start_month = post.date | date: "%b" %}
+{% assign start_year = post.date | date: "%y" %}
+{% assign date_period = start_month | append: "." %}
+
+{% if post.end_date %}
+	{% assign end_month = post.end_date | date: "%b" %}
+	{% assign end_year = post.end_date | date: "%y" %}
+	{% if start_year == end_year %}
+		{% if start_month == end_month %}
+			{% assign date_period = date_period | append: " &rsquo;" | append: start_year %}
+		{% else %}
+			{% assign date_period = date_period | append: "&ndash;" | append: end_month | append:  ". &rsquo;" | append: start_year %}
+		{% endif %}
+	{% else %}
+		{% assign date_period = date_period | append: " &rsquo;" | append: start_year | append: "&ndash;" | append: end_month | append:  ". &rsquo;" | append: end_year %}
+	{% endif %}
+{% else %}
+	{% assign date_period = date_period | append: " &rsquo;" | append: start_year %}
+{% endif %}
+
+<li>{{ date_period }}: {{ post.update }}</li>
