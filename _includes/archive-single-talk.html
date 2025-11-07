@@ -35,8 +35,32 @@
     </p>
 
 
-    {% if post.date %}<p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {{ post.date | date: '%B %d, %Y' }}</p>{% endif %}
-    {% if post.location %}<p class="archive__item-excerpt" itemprop="description">{{post.type}}, {{post.location}}</p>{% endif %}
+    {% if post.date %}
+    	<p class="page__meta">{% comment %}<i class="fa fa-clock" aria-hidden="true"></i>{% endcomment %} {{ post.date | date: '%B %d, %Y' }}</p>
+  	{% endif %}
+
+  	{% if post.type %}
+  		{% assign type_unformatted = post.type | downcase | strip %}
+  		{% if type_unformatted != "talk" %}
+  			{% assign type_to_print = post.type %}
+  		{% else %}
+  			{% assign type_to_print = false %}
+  		{% endif %}
+  	{% else %}
+  		{% assign type_to_print = false %}
+  	{% endif %}
+
+    {% if post.location or type_to_print %}
+    	{% if post.location %}
+    		{% if type_to_print %}
+		    	<p class="archive__item-excerpt" itemprop="description">{{ type_to_print }}, {{ post.location }}</p>
+		    {% else %}
+		    	<p class="archive__item-excerpt" itemprop="description">{{ post.location }}</p>
+		    {% endif %}
+	    {% else %}
+	    	<p class="archive__item-excerpt" itemprop="description">{{ type_to_print }}</p>
+    	{% endif %}
+  	{% endif %}
 		
 		{% if post.abstract %}
 			{% include abstract-in-excerpt.html %}
@@ -46,6 +70,7 @@
 		{% endif %}
 		
 		<script>
+			{% comment %}Add class to get spacing right{% endcomment %}
 			{let prev = document.currentScript.previousElementSibling;
 			let counter = 0;
 			
