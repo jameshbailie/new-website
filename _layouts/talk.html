@@ -49,10 +49,30 @@ layout: default
 						{% endif %}
 						<strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i>Date:</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></p>
 					{% endif %}
-					{% if page.location and page.place %}
-						<p class="talk-byline" itemprop="description">{{page.type}}, {{page.location}}, {{page.place}}</p>
-					{% elsif page.location %}
-						<p class="talk-byline" itemprop="description">{{page.type}}, {{page.location}}</p>
+					{% if page.location or page.place or page.type %}
+						{% assign byline = '<p class="talk-byline" itemprop="description">' %}
+						
+						{% if page.type %}
+							{% assign byline = byline | append: page.type %}
+						{% endif %}
+						
+						{% if page.location %}
+							{% if page.type %}
+								{% assign byline = byline | append: ", " %}
+							{% endif %}
+							{% assign byline = byline | append: page.location %}
+						{% endif %}
+						
+						{% if page.place %}
+							{% if page.type or page.location %}
+								{% assign byline = byline | append: ", " %}
+							{% endif %}
+							{% assign byline = byline | append: page.place %}
+						{% endif %}
+						
+						{% assign byline = byline | append: "</p>" %}
+						
+						{{ byline }}
 					{% endif %}
         </header>
       {% endunless %}
