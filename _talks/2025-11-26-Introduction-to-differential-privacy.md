@@ -1,7 +1,7 @@
 ---
 title: "Introduction to differential privacy"
 collection: talks
-type: "Keynote"
+type: "Keynote talk"
 date: 2025-11-26
 permalink: /talks/2025-11-26-Introduction-to-differential-privacy
 location: "Adelaide Data Privacy Workshop"

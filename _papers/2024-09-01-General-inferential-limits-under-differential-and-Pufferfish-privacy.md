@@ -13,7 +13,7 @@ version_history: 'This is an extended version of the <a href="2023-07-11-Differe
 bibtex_url: 'true'
 paper_url: 'true'
 arxiv_url: 'https://arxiv.org/abs/2401.15491'
-publisher_url: 'https://www.sciencedirect.com/science/article/pii/S0888613X24001294'
-poster_url: '/files/posters/TODO'
-talk_url: '/talks/TODO'
+publisher_url: 'https://doi.org/10.1016/j.ijar.2024.109242'
+poster_url: '/files/posters/2023-07-13-Differential-privacy-General-inferential-limits-via-intervals-of-measures.pdf'
+talk_url: '/talks/2023-07-13-Differential-privacy-General-inferential-limits-via-intervals-of-measures'
 ---

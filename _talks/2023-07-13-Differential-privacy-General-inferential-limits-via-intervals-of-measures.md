@@ -14,7 +14,3 @@ publisher_url: "https://isipta23.sipta.org/accepted-papers/long-bailie/"
 conference_url: 'https://isipta23.sipta.org/'
 conference_url_type: "Conference"
 ---
-
-If there are multiple related papers, put them here and explain. Don't put them in paper_url.
-
-[[What else would you put here?]]

@@ -1,5 +1,5 @@
 ---
-title: "Designing formally private mechanisms for the \\(p\\)% rule"
+title: "Designing formally private mechanisms for the <em>p</em>% rule"
 collection: talks
 type: "Talk"
 date: 2020-02-05

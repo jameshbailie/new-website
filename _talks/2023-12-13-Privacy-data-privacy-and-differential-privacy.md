@@ -1,7 +1,7 @@
 ---
 title: "Privacy, data privacy, and differential privacy"
 collection: talks
-type: "Invited talk (joint with Xiao-Li Meng)"
+type: "Keynote talk (joint with Xiao-Li Meng)"
 date: 2023-12-13
 permalink: /talks/2023-12-13-Privacy-data-privacy-and-differential-privacy
 location: "Humanising Machine Intelligence Workshop"
