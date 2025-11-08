@@ -11,7 +11,7 @@ abstract: "This paper presents a formal privacy analysis of data swapping, a fam
 bibtex_url: 'true'
 paper_url: 'true'
 publisher_url: 'https://conference.nber.org/conf_papers/f178188.pdf'
-talk_url: '/talks/TODO'
+talk_url: '/talks/2024-09-14-Can-swapping-be-differentially-private-A-refreshment-stirred-not-shaken'
 ---
 
 This working paper was developed into a trio of papers: <a href="/papers/2025-01-01-A-refreshment-stirred-not-shaken-I-Five-building-blocks-of-differential-privacy" target="_blank">Part I</a>, <a href="/papers/2025-01-14-A-refreshment-stirred-not-shaken-II-Invariant-preserving-deployments-of-differential-privacy-for-the-US-Decennial-Census" target="_blank">Part II</a>, <a href="/papers/2025-04-16-A-refreshment-stirred-not-shaken-III-Can-swapping-be-differentially-private" target="_blank">Part III</a>.

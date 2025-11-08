@@ -14,5 +14,5 @@ bibtex_url: 'true'
 preprint_url: 'true'
 arxiv_url: 'http://arxiv.org/abs/2408.07006'
 publisher_url: 'https://www.nber.org/books-and-chapters/data-privacy-protection-and-conduct-applied-research-methods-approaches-and-their-consequences/complexities-differential-privacy-survey-data'
-talk_url: '/talks/TODO'
+talk_url: '/talks/2024-05-16-Whose-data-is-it-anyway-Towards-a-formal-treatment-of-differential-privacy-for-surveys'
 ---

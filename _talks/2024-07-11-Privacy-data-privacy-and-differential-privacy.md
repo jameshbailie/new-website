@@ -1,0 +1,24 @@
+---
+title: "Privacy, data privacy, and differential privacy"
+collection: talks
+type: "Department colloquium"
+date: 2024-07-11
+permalink: /talks/2024-07-11-Privacy-data-privacy-and-differential-privacy
+location: "Tübingen AI Center"
+place: "Germany"
+abstract: "This talk beckons inquisitive audiences to explore the intricacies of data privacy. We journey back to the late 19th century, when the concept of privacy crystallised as a legal right. This change was spurred by the vexations of a socialite&rsquo;s husband, harried by tabloids during the emergence of yellow journalism and film photography. In today&rsquo;s era, marked by the rise of digital technologies, data science, and generative AI, data privacy has surged to become a major concern for nearly every organisation. Differential privacy (DP), rooted in cryptography, epitomises a significant advancement in balancing data privacy with data utility. Yet, as DP garners attention, it unveils complex challenges and misconceptions that confound even seasoned experts. Through a statistical lens, we examine these nuances. Central to our discussion is DP&rsquo;s commitment to curbing the relative risk of individual data disclosure, unperturbed by an adversary&rsquo;s prior knowledge, via the premise that posterior-to-prior ratios are constrained by extreme likelihood ratios. A stumbling block surfaces when &lsquo;individual privacy&rsquo; is delineated by counterfactually manipulating static individual data values, without considering their interdependencies. Alarmingly, this static viewpoint, flagged for its shortcomings for over a decade (Kifer and Machanavajjhala, 2011, ACM; Tschantz, Sen, and Datta, 2022, IEEE), continues to overshadow DP narratives, leading to the erroneous but widespread belief that DP is impervious to adversaries&rsquo; prior knowledge.
+<br><br>
+Turning to Warner&rsquo;s (1965, JASA) randomised response mechanism&mdash;the first recorded instance of a DP mechanism—we show how DP&rsquo;s mathematical assurances can crumble to an arbitrary degree when adversaries grasp the interplay among individuals. Drawing a parallel, it&rsquo;s akin to the folly of solely quarantining symptomatic individuals to thwart an airborne disease&rsquo;s spread. Thus, embracing a statistical perspective on data, seeing them as accidental manifestations of underlying essential information constructs, is as vital for bolstering data privacy as it is for rigorous data analysis.
+<br><br>
+Finally, unifying the many types of DP as different kinds of Lipschitz continuity on the data release mechanism (hence the &lsquo;differential&rsquo; in differential privacy), we elicit from existing literature five necessary building blocks for a DP specification. They are, in order of mathematical prerequisite, the protection domain (data space), the scope of protection (data multiverse), the protection unit (unit for data perturbation), the standard of protection (measure for output variations), and the intensity of protection (privacy loss budget). In simple terms, these are respectively the &ldquo;what&rdquo;, &ldquo;where&rdquo;, &ldquo;who&rdquo;, &ldquo;how&rdquo;, and &ldquo;how much&rdquo; questions of DP. We answer these questions for data swapping&mdash;a traditional statistical disclosure control method used, for example, in the 1990, 2000 and 2010 US Decennial Censuses&mdash;drawing parallels with the recent implementation of DP in their 2020 Census and unveiling the nuances and potential pitfalls in employing DP as a theoretical yardstick for privacy methodologies."
+slides_url: 'true'
+---
+
+This talk is based on joint work with Ruobin Gong, Xiao-Li Meng and Jörg Drechsler:
+<ol>
+	<li>&ldquo;<a href="/papers/2025-01-01-A-refreshment-stirred-not-shaken-I-Five-building-blocks-of-differential-privacy">A refreshment stirred, not shaken (I): Five building blocks of differential privacy</a>&rdquo;</li>
+	<li>&ldquo;<a href="/papers/2025-01-14-A-refreshment-stirred-not-shaken-II-Invariant-preserving-deployments-of-differential-privacy-for-the-US-Decennial-Census">A refreshment stirred, not shaken (II): Invariant-preserving deployments of differential privacy for the US Decennial Census</a>&rdquo;</li>
+	<li>&ldquo;<a href="/papers/2025-04-16-A-refreshment-stirred-not-shaken-III-Can-swapping-be-differentially-private">A refreshment stirred, not shaken (III): Can swapping be differentially private?</a>&rdquo;</li>
+	<li>&ldquo;<a href="/papers/2024-08-13-The-complexities-of-differential-privacy-for-survey-data">The complexities of differential privacy for survey data</a>&rdquo;</li>
+	<li>&ldquo;<a href="/papers/2024-05-13-Whose-data-is-it-anyway-Towards-a-formal-treatment-of-differential-privacy-for-surveys">Whose data is it anyway? Towards a formal treatment of differential privacy for surveys</a>&rdquo;</li>
+</ol>

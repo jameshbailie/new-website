@@ -12,8 +12,8 @@ abstract: "Property elicitation studies which attributes of a probability distri
 bibtex_url: 'true'
 preprint_url: 'true'
 arxiv_url: 'http://arxiv.org/abs/2507.05857'
-poster_url: 'TODO'
-talk_url: 'TODO'
+poster_url: '/files/posters/2025-06-15-Property-elicitation-on-imprecise-probabilities.pdf'
+talk_url: '/talks/2025-06-15-Property-elicitation-on-imprecise-probabilities'
 ---
 
 Authors ordered alphabetically.

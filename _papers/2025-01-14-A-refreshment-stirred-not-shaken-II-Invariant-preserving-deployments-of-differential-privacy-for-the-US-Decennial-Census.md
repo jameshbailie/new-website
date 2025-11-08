@@ -13,7 +13,7 @@ version_history: 'The third part of a trio of papers, which were originally pres
 bibtex_url: 'true'
 preprint_url: 'true'
 arxiv_url: 'https://arxiv.org/abs/2501.08449'
-talk_url: '/talks/TODO'
+talk_url: '/talks/2024-09-14-Can-swapping-be-differentially-private-A-refreshment-stirred-not-shaken'
 ---
 
 See also <a href="/papers/2025-01-01-A-refreshment-stirred-not-shaken-I-Five-building-blocks-of-differential-privacy" target="_blank">Part I</a> and <a href="/papers/2025-04-16-A-refreshment-stirred-not-shaken-III-Can-swapping-be-differentially-private" target="_blank">Part III</a>.

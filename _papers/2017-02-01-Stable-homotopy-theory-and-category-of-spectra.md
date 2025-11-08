@@ -10,4 +10,5 @@ citation: 'James Bailie (2017). “Stable Homotopy Theory and Category of Spectr
 bibtex_url: 'true'
 paper_url: 'true'
 unpublished: 'true'
+talk_url: '/talks/2017-02-08-Stable-homotopy-theory'
 ---

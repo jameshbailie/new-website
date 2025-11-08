@@ -14,6 +14,7 @@ author_profile: true
 	document.querySelector('.button-expand-container').classList.add('button-expand-container-aligned');
 </script>
 
+<div class="wordwrap"><a href="/cv/">See my CV for a more extensive list of talks.</a></div>
 
 
 {% assign now = 'now' | date: '%s' %}
@@ -23,9 +24,13 @@ author_profile: true
 {% for talk in site.talks %}
 	{% assign talk_date = talk.date | date: '%s' %}
 	{% if talk_date >= now %}
-		{% assign upcoming_talks = upcoming_talks | push: talk %}
+		{% unless talk.display and talk.display == "false" %}
+			{% assign upcoming_talks = upcoming_talks | push: talk %}
+		{% endunless %}
 	{% else %}
-		{% assign past_talks = past_talks | push: talk %}
+		{% unless talk.display and talk.display == "false" %}
+			{% assign past_talks = past_talks | push: talk %}
+		{% endunless %}
 	{% endif %}
 {% endfor %}
 

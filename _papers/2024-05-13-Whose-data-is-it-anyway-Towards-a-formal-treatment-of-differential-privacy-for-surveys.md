@@ -10,5 +10,5 @@ citation: 'James Bailie and Jörg Drechsler (2024). “Whose Data Is It Anyway? 
 bibtex_url: 'true'
 paper_url: 'true'
 publisher_url: 'https://conference.nber.org/conf_papers/f194306.pdf'
-talk_url: '/talks/TODO'
+talk_url: '/talks/2024-05-16-Whose-data-is-it-anyway-Towards-a-formal-treatment-of-differential-privacy-for-surveys'
 ---

@@ -12,8 +12,8 @@ version_history: '<a href="2024-09-01-General-inferential-limits-under-different
 bibtex_url: 'true'
 paper_url: 'true'
 publisher_url: 'https://proceedings.mlr.press/v215/bailie23a.html'
-poster_url: '/files/posters/TODO'
-talk_url: '/talks/TODO'
+poster_url: '/files/posters/2023-07-13-Differential-privacy-General-inferential-limits-via-intervals-of-measures.pdf'
+talk_url: '/talks/2023-07-13-Differential-privacy-General-inferential-limits-via-intervals-of-measures'
 ---
 
 Recipient of the Emerging Talent Award and the Artificial Intelligence Journal Fellowships for PhD Students at ISIPTA 2023.
