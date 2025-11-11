@@ -1,9 +1,9 @@
 ---
-title: "Introduction to differential privacy"
+title: "Whose data is it anyway? Towards a formal treatment of differential privacy for surveys"
 collection: talks
 type: "Keynote talk"
 date: 2025-11-26
-permalink: /talks/2025-11-26-Introduction-to-differential-privacy
+permalink: /talks/2025-11-26-Whose-data-is-it-anyway-Towards-a-formal-treatment-of-differential-privacy-for-surveys
 location: "Adelaide Data Privacy Workshop"
 place: "University of Adelaide, Australia"
 conference_url: 'https://bonstats.github.io/AdelaideDataPrivacyWorkshop/'
