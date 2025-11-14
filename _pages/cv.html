@@ -12,9 +12,41 @@ redirect_from:
 
 <div class="pdf-wrapper-container">
  <div class="pdf-wrapper">
-    <embed src="/files/cv.pdf" type="application/pdf" class="pdf-viewer" />
+    <embed src="/files/cv.pdf" type="application/pdf" class="pdf-viewer"/>
   </div>
 </div>
 
 
+
 {% include contact.html %}
+
+{% comment %}
+Compute width of PDF viewer: Should be either 
+1) 100vw - left x coordinate of it  - 10%);
+2) width of the div.page-content (which is the same as the width of the div.pdf-wrapper-container)
+{% endcomment %}
+<script>
+  function updatePdfWrapperWidth() {
+    const parent = document.querySelector('.pdf-wrapper-container');
+    const wrapper = document.querySelector('.pdf-wrapper');
+    if (!parent || !wrapper) return;
+
+    const rect = parent.getBoundingClientRect();
+    const x = rect.left;                 
+    const parentWidth = rect.width;      
+
+    const browserWidth = window.innerWidth;
+    const desiredWidth = browserWidth - x - (browserWidth * 0.10);
+
+    const finalWidth = Math.max(parentWidth, desiredWidth);
+
+    document.documentElement.style.setProperty(
+      '--pdf-wrapper-final-width',
+      finalWidth + 'px'
+    );
+  }
+
+  updatePdfWrapperWidth();
+  window.addEventListener('resize', updatePdfWrapperWidth);
+  window.addEventListener('DOMContentLoaded', updatePdfWrapperWidth);
+</script>

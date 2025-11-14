@@ -24,6 +24,7 @@ html.js.page--home .page__content h3 {
 .pdf-wrapper-container {
   position: relative;  /* create containing block */
   overflow: visible;   /* allow child to spill out */
+  min-height: 75vh;
 }
 
 .pdf-wrapper {
@@ -32,23 +33,15 @@ html.js.page--home .page__content h3 {
   left: 0;
 
   /* Let it grow to fill the viewport, but not exceed it */
-  width: 60vw;
-  height: 60vh;
+  width: var(--pdf-wrapper-final-width);
 
   /* Optional: ensure it stays above siblings if overlapping */
   z-index: 10;
 }
 
-/* When sidebar collapses into the top bar (roughly -- this was just eyeballed, probably super janky) */
-@media (max-width: 930px) {
-  .pdf-wrapper {
-    width: 90vw;   
-    height: 60vh;  
-  }
-}
-
 .pdf-viewer {
-  width: 100%;
-  height: 100%;
-  border: none;
+  display:block; 
+  width:100%; 
+  height:75vh; 
+  border:none;
 }
